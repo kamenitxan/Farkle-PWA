@@ -1,0 +1,15 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
+  <p>
+    <mat-form-field>
+      <mat-label i18n>Player 1</mat-label>
+      <input matInput formControlName="player1Name" type="text" data-testid="player1Name">
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field>
+      <mat-label i18n>Player 2</mat-label>
+      <input matInput formControlName="player2Name" type="text" required data-testid="player2Name">
+    </mat-form-field>
+  </p>
+  <button type="submit">Update</button>
+</form>
