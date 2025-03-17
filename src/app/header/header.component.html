@@ -1,8 +1,10 @@
 <mat-toolbar color="primary" class="mat-elevation-z6">
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" routerLink="">
-    <mat-icon>arrow_back</mat-icon>
-  </button>
-  <span> - {{player1}}-{{player2}}</span>
+  @if (showBack()) {
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" routerLink="">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+  }
+  <span> {{player1}}-{{player2}}</span>
   <span class="example-spacer"></span>
   <button mat-icon-button class="example-icon" routerLink="settings">
     <mat-icon>settings</mat-icon>

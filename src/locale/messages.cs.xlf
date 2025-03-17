@@ -1,5 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en" trgLang="cs">
   <file id="ngi18n" original="ng.template">
-  </file>
+  <unit id="8066657364512808074">
+      <notes>
+        <note category="location">src/app/pages/game/controls/controls.component.html:2,3</note>
+      </notes>
+      <segment state="initial">
+        <source>End round</source>
+      <target>End round</target></segment>
+    </unit><unit id="8548144685888439365">
+      <notes>
+        <note category="location">src/app/pages/game/controls/controls.component.html:3,4</note>
+      </notes>
+      <segment state="initial">
+        <source>Roll again</source>
+      <target>Roll again</target></segment>
+    </unit><unit id="1567933707014835992">
+      <notes>
+        <note category="location">src/app/pages/settings/settings.component.html:4</note>
+      </notes>
+      <segment state="initial">
+        <source>Player 1</source>
+      <target>Player 1</target></segment>
+    </unit><unit id="1814275131671684772">
+      <notes>
+        <note category="location">src/app/pages/settings/settings.component.html:10</note>
+      </notes>
+      <segment state="initial">
+        <source>Player 2</source>
+      <target>Player 2</target></segment>
+    </unit></file>
 </xliff>

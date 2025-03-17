@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, input, OnInit} from '@angular/core';
 import {MatToolbar} from '@angular/material/toolbar';
 import {MatIcon} from '@angular/material/icon';
 import {MatIconButton} from '@angular/material/button';
-import {RouterLink} from '@angular/router';
+import {ActivatedRoute, RouterLink} from '@angular/router';
 import {SettingsService} from '../services/settings.service';
 
 @Component({
@@ -22,7 +22,11 @@ export class HeaderComponent implements OnInit {
   player1: string = "";
   player2: string = "";
 
-  constructor(private readonly settingsService: SettingsService) {
+  showBack = input.required<boolean>();
+
+  constructor(
+    private readonly settingsService: SettingsService,
+  ) {
 
   }
 

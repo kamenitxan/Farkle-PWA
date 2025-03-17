@@ -23,11 +23,11 @@ export class SettingsComponent {
   });
 
   constructor(private readonly settingsService: SettingsService) {
-    this.settingsService._player1NameSubject.subscribe(player1Name => {
+    this.settingsService.player1NameObservable.subscribe(player1Name => {
       console.log("patching player1Name", player1Name);
       this.form.patchValue({player1Name: player1Name});
     })
-    this.settingsService._player2NameSubject.subscribe(player2Name => {
+    this.settingsService.player2NameObservable.subscribe(player2Name => {
       this.form.patchValue({player2Name: player2Name});
     })
 

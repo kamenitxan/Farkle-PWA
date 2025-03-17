@@ -6,8 +6,8 @@ import {BehaviorSubject} from 'rxjs';
 })
 export class SettingsService {
 
-  _player1NameSubject = new BehaviorSubject<string>("player1");
-  _player2NameSubject = new BehaviorSubject<string>("player2");
+  private readonly _player1NameSubject = new BehaviorSubject<string>("player1");
+  private readonly _player2NameSubject = new BehaviorSubject<string>("player2");
   player1NameObservable = this._player1NameSubject.asObservable();
   player2NameObservable = this._player2NameSubject.asObservable();
 

@@ -4,5 +4,7 @@
   grid-template-rows: repeat(6, 1fr);
   grid-column-gap: 5px;
   grid-row-gap: 5px;
+
+  max-height: calc(100vh - 100px);
 }
 
