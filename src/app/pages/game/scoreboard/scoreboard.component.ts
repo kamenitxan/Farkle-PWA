@@ -2,12 +2,12 @@ import {Component, input, OnInit} from '@angular/core';
 import {SettingsService} from '../../../services/settings.service';
 
 @Component({
-  selector: 'app-score',
+  selector: 'app-scoreboard',
   imports: [],
-  templateUrl: './score.component.html',
-  styleUrl: './score.component.scss'
+  templateUrl: './scoreboard.component.html',
+  styleUrl: './scoreboard.component.scss'
 })
-export class ScoreComponent implements OnInit {
+export class ScoreboardComponent implements OnInit {
 
   playerId = input.required<1 | 2>();
   playerName: string = "";

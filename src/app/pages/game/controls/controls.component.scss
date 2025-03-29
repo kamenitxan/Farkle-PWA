@@ -1,4 +1,11 @@
-button {
-  width: 48%;
+.button-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0;
+  grid-row-gap: 0;
+}
 
+button {
+  margin: 5%;
 }

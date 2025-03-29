@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start_cs": "ng serve --hmr --configuration=cs",
-    "start_en": "ng serve --hmr --configuration=en",
+    "start_cs": "ng serve --hmr --configuration=cs --host 0.0.0.0",
+    "start_en": "ng serve --hmr --configuration=en --host 0.0.0.0",
     "build": "ng build",
     "build_dev": "ng build --configuration development",
     "watch": "ng build --watch --configuration development",
