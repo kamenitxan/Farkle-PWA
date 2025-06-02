@@ -3,6 +3,7 @@ import {DiceBoardComponent} from './dice-board/dice-board.component';
 import {ControlsComponent} from './controls/controls.component';
 import {ScoreboardComponent} from './scoreboard/scoreboard.component';
 import {ScoreCalculatorService} from '../../services/score-calculator.service';
+import {ScoreKeeperService} from '../../services/score-keeper.service';
 
 @Component({
   selector: 'app-game',
@@ -20,7 +21,10 @@ export class GameComponent {
   diceBoard: DiceBoardComponent | undefined = undefined;
 
 
-  constructor(private readonly scoreCalculator: ScoreCalculatorService) {
+  constructor(
+    private readonly scoreCalculator: ScoreCalculatorService,
+    private readonly scoreKeeperService: ScoreKeeperService,
+  ) {
   }
 
   handleEndRound() {
@@ -29,6 +33,8 @@ export class GameComponent {
       console.log("selectedDice", selectedDice);
       const score = this.scoreCalculator.calculateScore(selectedDice);
       console.log("score", score);
+      this.scoreKeeperService.updateRoundScore(score);
+      this.scoreKeeperService.updateSelectedScore(0);
     }
   }
 
