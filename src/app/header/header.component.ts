@@ -2,7 +2,7 @@ import {Component, input, OnInit} from '@angular/core';
 import {MatToolbar} from '@angular/material/toolbar';
 import {MatIcon} from '@angular/material/icon';
 import {MatIconButton} from '@angular/material/button';
-import {ActivatedRoute, RouterLink} from '@angular/router';
+import {RouterLink} from '@angular/router';
 import {SettingsService} from '../services/settings.service';
 
 @Component({
@@ -23,6 +23,7 @@ export class HeaderComponent implements OnInit {
   player2: string = "";
 
   showBack = input.required<boolean>();
+  currentRoute = input<string>('');
 
   constructor(
     private readonly settingsService: SettingsService,
@@ -39,6 +40,17 @@ export class HeaderComponent implements OnInit {
       this.player2 = player2Name;
       console.log("updatin")
     })
+  }
+
+  getHeaderTitle(): string {
+    const route = this.currentRoute();
+    if (route === '/settings') {
+      return 'Nastavení';
+    } else if (route === '/rules') {
+      return 'Pravidla';
+    } else {
+      return this.player1 + ' - ' + this.player2;
+    }
   }
 
 }

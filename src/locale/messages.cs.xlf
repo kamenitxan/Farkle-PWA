@@ -21,13 +21,20 @@
       </notes>
       <segment state="initial">
         <source>Player 1</source>
-      <target>Player 1</target></segment>
+      <target>Hráč 1</target></segment>
     </unit><unit id="1814275131671684772">
       <notes>
         <note category="location">src/app/pages/settings/settings.component.html:10</note>
       </notes>
       <segment state="initial">
         <source>Player 2</source>
-      <target>Player 2</target></segment>
+      <target>Hráč 2</target></segment>
+    </unit><unit id="targetScore">
+      <notes>
+        <note category="location">src/app/pages/settings/settings.component.html:16</note>
+      </notes>
+      <segment state="initial">
+        <source>Target Score</source>
+      <target>Cílové skóre</target></segment>
     </unit></file>
 </xliff>

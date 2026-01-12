@@ -9,8 +9,8 @@
 
   flex: 0 0 auto;
   padding: 1vmin;
-  width: 13vmin;
-  height: 13vmin;
+  width: min(13vmin, 80px);
+  height: min(13vmin, 80px);
 
   background-color: #e7e7e7;
   box-shadow: inset 0 5px white, inset 0 -5px #bbb, inset 5px 0 #d7d7d7,
@@ -33,8 +33,8 @@
   display: block;
   align-self: center;
   justify-self: center;
-  width: 2vw;
-  height: 2vw;
+  width: min(2vw, 15px);
+  height: min(2vw, 15px);
   border-radius: 50%;
   background-color: #333;
   box-shadow: inset 0 3px #111, inset 0 -3px #555;

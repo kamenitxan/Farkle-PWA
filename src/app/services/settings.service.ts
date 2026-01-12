@@ -11,6 +11,9 @@ export class SettingsService {
   player1NameObservable = this._player1NameSubject.asObservable();
   player2NameObservable = this._player2NameSubject.asObservable();
 
+  private readonly _targetScoreSubject = new BehaviorSubject<number>(2000);
+  targetScoreObservable = this._targetScoreSubject.asObservable();
+
   constructor(@Optional() @SkipSelf() parent?: SettingsService) {
     console.log("SERVICE CONSTRUCTOR");
     if (parent) {
@@ -26,5 +29,13 @@ export class SettingsService {
     this._player1NameSubject.next(player1);
     this._player2NameSubject.next(player2);
     console.log(player1, player2);
+  }
+
+  updateTargetScore(targetScore: number) {
+    this._targetScoreSubject.next(targetScore);
+  }
+
+  getTargetScore(): number {
+    return this._targetScoreSubject.value;
   }
 }
