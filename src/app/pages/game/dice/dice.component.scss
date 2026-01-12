@@ -20,6 +20,14 @@
 .face.selected {
   background-color: #baffad;
 }
+.face.locked {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.face.was-selected {
+  background-color: #ffd89b;
+  opacity: 0.85;
+}
 
 .pip {
   display: block;

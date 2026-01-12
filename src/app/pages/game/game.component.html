@@ -3,6 +3,6 @@
     <app-scoreboard [playerId]="1"></app-scoreboard>
     <app-scoreboard [playerId]="2" id="sc2"></app-scoreboard>
   </div>
-  <app-dice-board></app-dice-board>
-  <app-controls id="controls" (endRoundEvt)="handleEndRound()"></app-controls>
+  <app-dice-board (diceSelectionChanged)="handleDiceSelectionChanged($event)"></app-dice-board>
+  <app-controls id="controls" (endRoundEvt)="handleEndRound()" (rollAgainEvt)="handleRollAgain()"></app-controls>
 </div>

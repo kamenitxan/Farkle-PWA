@@ -1,6 +1,6 @@
 
 
-<div class="face" (click)="changeStatus($event)" (touchend)="changeStatus($event)" [class.selected]="selected">
+<div class="face" (click)="changeStatus($event)" (touchend)="changeStatus($event)" [class.selected]="selected" [class.locked]="locked" [class.was-selected]="wasSelected">
   @for (f of [].constructor(faces); track f) {
     <span class="pip"></span>
   }

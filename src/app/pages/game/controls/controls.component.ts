@@ -12,9 +12,14 @@ import {MatButton} from '@angular/material/button';
 export class ControlsComponent {
 
   endRoundEvt = output();
+  rollAgainEvt = output();
 
   endRound() {
     this.endRoundEvt.emit();
+  }
+
+  rollAgain() {
+    this.rollAgainEvt.emit();
   }
 
 }

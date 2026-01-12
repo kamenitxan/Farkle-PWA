@@ -7,7 +7,7 @@ import {BehaviorSubject} from 'rxjs';
 export class ScoreKeeperService {
 
   private readonly _player1ScoreSubject = new BehaviorSubject<number>(0);
-  private readonly _player2ScoreSubject = new BehaviorSubject<number>(1);
+  private readonly _player2ScoreSubject = new BehaviorSubject<number>(0);
   player1ScoreObservable = this._player1ScoreSubject.asObservable();
   player2ScoreObservable = this._player2ScoreSubject.asObservable();
 
@@ -26,8 +26,28 @@ export class ScoreKeeperService {
     this._selectedScoreSubject.next(score);
   }
 
+  getRoundScore(): number {
+    return this.roundScore;
+  }
+
   updateRoundScore(score: number) {
-    this._roundScoreSubject.next(this.roundScore + score);
+    this.roundScore += score;
+    this._roundScoreSubject.next(this.roundScore);
+  }
+
+  resetRoundScore() {
+    this.roundScore = 0;
+    this._roundScoreSubject.next(this.roundScore);
+  }
+
+  addToPlayerScore(player: 1 | 2, score: number) {
+    if (player === 1) {
+      const currentScore = this._player1ScoreSubject.value;
+      this._player1ScoreSubject.next(currentScore + score);
+    } else {
+      const currentScore = this._player2ScoreSubject.value;
+      this._player2ScoreSubject.next(currentScore + score);
+    }
   }
 
   updateCurrentPlayer(player: 1 | 2) {
