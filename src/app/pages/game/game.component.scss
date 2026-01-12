@@ -1,12 +1,19 @@
-#game {
-  padding-left: 1vw;
-  padding-right: 1vw;
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
 
-#controls {
+#game {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   width: 100%;
-  position: absolute;
-  bottom: 10px;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  overflow: hidden;
 }
 
 #scoreboard-container {
@@ -15,4 +22,17 @@
   grid-template-rows: 1fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
+  flex-shrink: 0;
+}
+
+app-dice-board {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+#controls {
+  width: 100%;
+  flex-shrink: 0;
+  margin-bottom: 10px;
 }
