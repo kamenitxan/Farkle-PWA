@@ -17,6 +17,7 @@ export class ScoreboardComponent implements OnInit {
   roundScore: number = 0;
   selectedScore: number = 0;
   targetScore: number = 2000;
+  isCurrentPlayer: boolean = false;
 
   constructor(
     private readonly settingsService: SettingsService,
@@ -49,6 +50,9 @@ export class ScoreboardComponent implements OnInit {
     });
     this.settingsService.targetScoreObservable.subscribe(targetScore => {
       this.targetScore = targetScore;
+    });
+    this.scoreKeeperService.currentPlayerObservable.subscribe(currentPlayer => {
+      this.isCurrentPlayer = currentPlayer === this.playerId();
     });
   }
 }
