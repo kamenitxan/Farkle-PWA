@@ -1,6 +1,26 @@
-<div class="scoreboard">
-  <p>{{ playerName }}</p>
-  <p>{{ score }} / 2000</p>
-  <p>round: {{ roundScore }}</p>
-  <p>selected: {{ selectedScore }}</p>
-</div>
+<mat-card class="scoreboard">
+  <mat-card-content>
+    <div class="player-section">
+      <h2 class="player-name">{{ playerName }}</h2>
+    </div>
+
+    <div class="score-display">
+      <div class="main-score">
+        <span class="score-number">{{ score }}</span>
+        <span class="score-total">/ 2000</span>
+      </div>
+    </div>
+
+    <div class="score-stats">
+      <div class="stat">
+        <span class="stat-label">Kolo</span>
+        <span class="stat-value">{{ roundScore }}</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Vybrané</span>
+        <span class="stat-value">{{ selectedScore }}</span>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+

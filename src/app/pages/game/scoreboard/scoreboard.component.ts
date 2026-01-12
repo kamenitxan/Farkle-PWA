@@ -1,10 +1,11 @@
 import {Component, input, OnInit} from '@angular/core';
 import {SettingsService} from '../../../services/settings.service';
 import {ScoreKeeperService} from '../../../services/score-keeper.service';
+import {MatCard, MatCardContent} from '@angular/material/card';
 
 @Component({
   selector: 'app-scoreboard',
-  imports: [],
+  imports: [MatCard, MatCardContent],
   templateUrl: './scoreboard.component.html',
   styleUrl: './scoreboard.component.scss'
 })
