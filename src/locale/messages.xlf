@@ -17,9 +17,49 @@
         <source>Roll again</source>
       </segment>
     </unit>
+    <unit id="1429185612400012438">
+      <notes>
+        <note category="location">src/app/pages/game/scoreboard/scoreboard.component.html:16,17</note>
+      </notes>
+      <segment>
+        <source>Round</source>
+      </segment>
+    </unit>
+    <unit id="9041444200911417888">
+      <notes>
+        <note category="location">src/app/pages/game/scoreboard/scoreboard.component.html:20,21</note>
+      </notes>
+      <segment>
+        <source>Selected</source>
+      </segment>
+    </unit>
+    <unit id="4254706186425756476">
+      <notes>
+        <note category="location">src/app/pages/game/winner-dialog/winner-dialog.component.html:29,30</note>
+      </notes>
+      <segment>
+        <source>Winner!</source>
+      </segment>
+    </unit>
+    <unit id="5660292969280271984">
+      <notes>
+        <note category="location">src/app/pages/game/winner-dialog/winner-dialog.component.html:31,32</note>
+      </notes>
+      <segment>
+        <source>Player <ph id="0" equiv="INTERPOLATION" disp="{{ data.winner }}"/> won with a score <ph id="1" equiv="INTERPOLATION_1" disp="{{ data.score }}"/>.</source>
+      </segment>
+    </unit>
+    <unit id="2128624502640961509">
+      <notes>
+        <note category="location">src/app/pages/game/winner-dialog/winner-dialog.component.html:37,38</note>
+      </notes>
+      <segment>
+        <source>New game</source>
+      </segment>
+    </unit>
     <unit id="1567933707014835992">
       <notes>
-        <note category="location">src/app/pages/settings/settings.component.html:4</note>
+        <note category="location">src/app/pages/settings/settings.component.html:6</note>
       </notes>
       <segment>
         <source>Player 1</source>
@@ -27,10 +67,26 @@
     </unit>
     <unit id="1814275131671684772">
       <notes>
-        <note category="location">src/app/pages/settings/settings.component.html:10</note>
+        <note category="location">src/app/pages/settings/settings.component.html:11</note>
       </notes>
       <segment>
         <source>Player 2</source>
+      </segment>
+    </unit>
+    <unit id="4089450126332715790">
+      <notes>
+        <note category="location">src/app/pages/settings/settings.component.html:16</note>
+      </notes>
+      <segment>
+        <source>Target Score</source>
+      </segment>
+    </unit>
+    <unit id="3768927257183755959">
+      <notes>
+        <note category="location">src/app/pages/settings/settings.component.html:21,22</note>
+      </notes>
+      <segment>
+        <source>Save</source>
       </segment>
     </unit>
   </file>

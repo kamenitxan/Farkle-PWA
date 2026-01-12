@@ -5,36 +5,92 @@
       <notes>
         <note category="location">src/app/pages/game/controls/controls.component.html:2,3</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>End round</source>
-      <target>End round</target></segment>
+      <target>Ukončit kolo</target></segment>
     </unit><unit id="8548144685888439365">
       <notes>
         <note category="location">src/app/pages/game/controls/controls.component.html:3,4</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Roll again</source>
-      <target>Roll again</target></segment>
+      <target>Házet znovu</target></segment>
+    </unit><unit id="1429185612400012438">
+      <notes>
+        <note category="location">src/app/pages/game/scoreboard/scoreboard.component.html:16,17</note>
+      </notes>
+      <segment state="translated">
+        <source>Round</source>
+      <target>Kolo</target></segment>
+    </unit><unit id="9041444200911417888">
+      <notes>
+        <note category="location">src/app/pages/game/scoreboard/scoreboard.component.html:20,21</note>
+      </notes>
+      <segment state="translated">
+        <source>Selected</source>
+      <target>Vybrané</target></segment>
+    </unit><unit id="4254706186425756476">
+      <notes>
+        <note category="location">src/app/pages/game/winner-dialog/winner-dialog.component.html:29,30</note>
+      </notes>
+      <segment state="translated">
+        <source>Winner!</source>
+      <target>Vítěz!</target></segment>
+    </unit><unit id="5660292969280271984">
+      <notes>
+        <note category="location">src/app/pages/game/winner-dialog/winner-dialog.component.html:31,32</note>
+      </notes>
+      <segment state="translated">
+        <source>Player <ph id="0" equiv="INTERPOLATION" disp="{{ data.winner }}"/> won with a score <ph id="1" equiv="INTERPOLATION_1" disp="{{ data.score }}"/>.</source>
+      <target>Hráč <ph id="0" equiv="INTERPOLATION" disp="{{ data.winner }}"/> vyhrál se skóre <ph id="1" equiv="INTERPOLATION_1" disp="{{ data.score }}"/>.</target></segment>
+    </unit><unit id="2128624502640961509">
+      <notes>
+        <note category="location">src/app/pages/game/winner-dialog/winner-dialog.component.html:37,38</note>
+      </notes>
+      <segment state="translated">
+        <source>New game</source>
+      <target>Nová hra</target></segment>
     </unit><unit id="1567933707014835992">
       <notes>
-        <note category="location">src/app/pages/settings/settings.component.html:4</note>
-      </notes>
-      <segment state="initial">
+
+      <note category="location">src/app/pages/settings/settings.component.html:6</note></notes>
+      <segment state="translated">
         <source>Player 1</source>
       <target>Hráč 1</target></segment>
     </unit><unit id="1814275131671684772">
       <notes>
-        <note category="location">src/app/pages/settings/settings.component.html:10</note>
-      </notes>
-      <segment state="initial">
+
+      <note category="location">src/app/pages/settings/settings.component.html:11</note></notes>
+      <segment state="translated">
         <source>Player 2</source>
       <target>Hráč 2</target></segment>
-    </unit><unit id="targetScore">
+    </unit><unit id="4089450126332715790">
       <notes>
         <note category="location">src/app/pages/settings/settings.component.html:16</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source>Target Score</source>
-      <target>Cílové skóre</target></segment>
+      <target>Konečné skóre</target></segment>
+    </unit><unit id="3768927257183755959">
+      <notes>
+        <note category="location">src/app/pages/settings/settings.component.html:21,22</note>
+      </notes>
+      <segment state="translated">
+        <source>Save</source>
+      <target>Uložit</target></segment>
+    </unit><unit id="header.settings">
+      <notes>
+        <note category="location">src/app/header/header.component.ts</note>
+      </notes>
+      <segment state="translated">
+        <source>Settings</source>
+      <target>Nastavení</target></segment>
+    </unit><unit id="header.rules">
+      <notes>
+        <note category="location">src/app/header/header.component.ts</note>
+      </notes>
+      <segment state="translated">
+        <source>Rules</source>
+      <target>Pravidla</target></segment>
     </unit></file>
 </xliff>

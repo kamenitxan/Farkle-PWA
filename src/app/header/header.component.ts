@@ -33,23 +33,21 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.settingsService.player1NameObservable.subscribe(player1Name => {
-      console.log("updatin1")
       this.player1 = player1Name;
     })
     this.settingsService.player2NameObservable.subscribe(player2Name => {
       this.player2 = player2Name;
-      console.log("updatin")
     })
   }
 
   getHeaderTitle(): string {
     const route = this.currentRoute();
     if (route === '/settings') {
-      return 'Nastavení';
+      return $localize`:@@header.settings:Settings`;
     } else if (route === '/rules') {
-      return 'Pravidla';
+      return $localize`:@@header.rules:Rules`;
     } else {
-      return this.player1 + ' - ' + this.player2;
+      return "Farkle";
     }
   }
 
