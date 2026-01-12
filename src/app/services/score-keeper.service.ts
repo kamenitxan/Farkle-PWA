@@ -53,4 +53,16 @@ export class ScoreKeeperService {
   updateCurrentPlayer(player: 1 | 2) {
     this._currentPlayerSubject.next(player);
   }
+
+  getPlayerScore(player: 1 | 2): number {
+    return player === 1 ? this._player1ScoreSubject.value : this._player2ScoreSubject.value;
+  }
+
+  resetAllScores() {
+    this._player1ScoreSubject.next(0);
+    this._player2ScoreSubject.next(0);
+    this.resetRoundScore();
+    this.updateSelectedScore(0);
+    this.updateCurrentPlayer(1);
+  }
 }

@@ -1,0 +1,30 @@
+.dialog-body {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 12px;
+  align-items: center;
+}
+
+.hero img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  object-fit: cover;
+}
+
+.text h2 {
+  margin: 0 0 8px 0;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.text p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.mat-dialog-actions {
+  gap: 8px;
+}

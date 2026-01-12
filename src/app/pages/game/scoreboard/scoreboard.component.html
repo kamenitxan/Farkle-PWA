@@ -18,9 +18,8 @@
       </div>
       <div class="stat">
         <span class="stat-label">Vybrané</span>
-        <span class="stat-value">{{ selectedScore }}</span>
+        <span class="stat-value">{{ isCurrentPlayer ? selectedScore : 0 }}</span>
       </div>
     </div>
   </mat-card-content>
 </mat-card>
-
