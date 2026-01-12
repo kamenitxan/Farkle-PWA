@@ -50,6 +50,153 @@
       <segment state="translated">
         <source>New game</source>
       <target>Nová hra</target></segment>
+    </unit><unit id="8383247063934420175">
+      <notes>
+        <note category="location">src/app/pages/rules/rules.component.html:6</note>
+      </notes>
+      <segment state="translated">
+        <source>Game objective</source>
+      <target>Cíl hry</target></segment>
+    </unit><unit id="9128036461485546799">
+      <notes>
+        <note category="location">src/app/pages/rules/rules.component.html:9,10</note>
+      </notes>
+      <segment state="translated">
+        <source>The player who first reaches 2000 points wins. Players take turns rolling dice and collecting points for certain combinations.</source>
+      <target>Zvítězí hráč, který první dosáhne 2000 bodů. Hráči si střídavě házejí kostkami a sbírají body za určité kombinace.</target></segment>
+    </unit><unit id="2673765205235944593">
+      <notes>
+        <note category="location">src/app/pages/rules/rules.component.html:15</note>
+      </notes>
+      <segment state="translated">
+        <source>Scoring rules</source>
+      <target>Pravidla bodování</target></segment>
+    </unit><unit id="122181939212683375">
+      <notes>
+        <note category="location">src/app/pages/rules/rules.component.html:19,20</note>
+      </notes>
+      <segment state="translated">
+        <source><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong>" dispEnd="&lt;/strong>">1:</pc> 100 points</source>
+      <target><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong>" dispEnd="&lt;/strong>">1:</pc> 100 bodů</target></segment>
+    </unit><unit id="1279717121811017036">
+      <notes>
+        <note category="location">src/app/pages/rules/rules.component.html:20,21</note>
+      </notes>
+      <segment state="translated">
+        <source><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong>" dispEnd="&lt;/strong>">5:</pc> 50 points</source>
+      <target><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong>" dispEnd="&lt;/strong>">5:</pc> 50 bodů</target></segment>
+    </unit><unit id="8514613946893159780">
+      <notes>
+        <note category="location">src/app/pages/rules/rules.component.html:21,22</note>
+      </notes>
+      <segment state="initial">
+        <source><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong>" dispEnd="&lt;/strong>">Three of a kind:</pc> Value × 100 (e.g. three 4s = 400 points)</source>
+      <target><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong>" dispEnd="&lt;/strong>">Three of a kind:</pc> Value × 100 (e.g. three 4s = 400 points)</target></segment>
+    </unit><unit id="1718694354878411288">
+      <notes>
+        <note category="location">src/app/pages/rules/rules.component.html:22,23</note>
+      </notes>
+      <segment state="translated">
+        <source><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong>" dispEnd="&lt;/strong>">Three 1s:</pc> 1000 points</source>
+      <target><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong>" dispEnd="&lt;/strong>">Tři 1:</pc> 1000 bodů</target></segment>
+    </unit><unit id="187914367659312656">
+      <notes>
+        <note category="location">src/app/pages/rules/rules.component.html:23,24</note>
+      </notes>
+      <segment state="initial">
+        <source><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong>" dispEnd="&lt;/strong>">Four of a kind:</pc> Double the points of three of a kind (e.g. four 4s = 800 points)</source>
+      <target><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong>" dispEnd="&lt;/strong>">Four of a kind:</pc> Double the points of three of a kind (e.g. four 4s = 800 points)</target></segment>
+    </unit><unit id="3701063766375187036">
+      <notes>
+        <note category="location">src/app/pages/rules/rules.component.html:24,25</note>
+      </notes>
+      <segment state="initial">
+        <source><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong>" dispEnd="&lt;/strong>">Five of a kind:</pc> Four times the points of three of a kind (e.g. five 4s = 1600 points)</source>
+      <target><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong>" dispEnd="&lt;/strong>">Five of a kind:</pc> Four times the points of three of a kind (e.g. five 4s = 1600 points)</target></segment>
+    </unit><unit id="3014525873995891492">
+      <notes>
+        <note category="location">src/app/pages/rules/rules.component.html:25,26</note>
+      </notes>
+      <segment state="initial">
+        <source><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong>" dispEnd="&lt;/strong>">Six of a kind:</pc> Eight times the points of three of a kind</source>
+      <target><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong>" dispEnd="&lt;/strong>">Six of a kind:</pc> Eight times the points of three of a kind</target></segment>
+    </unit><unit id="1444304118133275599">
+      <notes>
+        <note category="location">src/app/pages/rules/rules.component.html:26,27</note>
+      </notes>
+      <segment state="translated">
+        <source><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong>" dispEnd="&lt;/strong>">Full straight (1-2-3-4-5-6):</pc> 1500 points</source>
+      <target><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong>" dispEnd="&lt;/strong>">Plná postupka(1-2-3-4-5-6):</pc> 1500 bodů</target></segment>
+    </unit><unit id="192989546288722366">
+      <notes>
+        <note category="location">src/app/pages/rules/rules.component.html:27,28</note>
+      </notes>
+      <segment state="translated">
+        <source><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong>" dispEnd="&lt;/strong>">Partial straight (1-2-3-4-5):</pc> 500 points</source>
+      <target><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong>" dispEnd="&lt;/strong>">Částečná postupka (1-2-3-4-5):</pc> 500 bodů</target></segment>
+    </unit><unit id="6189384693477079178">
+      <notes>
+        <note category="location">src/app/pages/rules/rules.component.html:28,29</note>
+      </notes>
+      <segment state="translated">
+        <source><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong>" dispEnd="&lt;/strong>">Partial straight (2-3-4-5-6):</pc> 750 points</source>
+      <target><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong>" dispEnd="&lt;/strong>">Částečná postupka (2-3-4-5-6):</pc> 750 bodů</target></segment>
+    </unit><unit id="8474440639017089446">
+      <notes>
+
+      <note category="location">src/app/pages/rules/rules.component.html:35</note></notes>
+      <segment state="translated">
+        <source>Round procedure</source>
+      <target>Průběh kola</target></segment>
+    </unit><unit id="315300027983188945">
+      <notes>
+
+      <note category="location">src/app/pages/rules/rules.component.html:39</note></notes>
+      <segment state="translated">
+        <source>Player rolls all 6 dice</source>
+      <target>Hráč háže všemi 6 kostkami</target></segment>
+    </unit><unit id="8159647429209871551">
+      <notes>
+
+      <note category="location">src/app/pages/rules/rules.component.html:40</note></notes>
+      <segment state="translated">
+        <source>Must select at least one scoring die</source>
+      <target>Musí si vybrat alespoň jednu kostku s body</target></segment>
+    </unit><unit id="4800336201274986729">
+      <notes>
+
+      <note category="location">src/app/pages/rules/rules.component.html:41</note></notes>
+      <segment state="translated">
+        <source>Selected dice are set aside and their points are added (round)</source>
+      <target>Vybrané kostky se odloží a jejich body se sčítají (kolo)</target></segment>
+    </unit><unit id="7821479012291698310">
+      <notes>
+
+      <note category="location">src/app/pages/rules/rules.component.html:42</note></notes>
+      <segment state="translated">
+        <source>Player can choose: <pc id="0" equivStart="START_UNORDERED_LIST" equivEnd="CLOSE_UNORDERED_LIST" type="other" dispStart="&lt;ul>" dispEnd="&lt;/ul>"><pc id="1" equivStart="START_LIST_ITEM" equivEnd="CLOSE_LIST_ITEM" type="other" dispStart="&lt;li>" dispEnd="&lt;/li>"><pc id="2" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong>" dispEnd="&lt;/strong>">Continue:</pc> Roll remaining dice. If no points, loses all round points (farkle)</pc><pc id="3" equivStart="START_LIST_ITEM" equivEnd="CLOSE_LIST_ITEM" type="other" dispStart="&lt;li>" dispEnd="&lt;/li>"><pc id="4" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong>" dispEnd="&lt;/strong>">End:</pc> Take round points and end turn</pc></pc></source>
+      <target>Hráč si může zvolit: <pc id="0" equivStart="START_UNORDERED_LIST" equivEnd="CLOSE_UNORDERED_LIST" type="other" dispStart="&lt;ul>" dispEnd="&lt;/ul>"><pc id="1" equivStart="START_LIST_ITEM" equivEnd="CLOSE_LIST_ITEM" type="other" dispStart="&lt;li>" dispEnd="&lt;/li>"><pc id="2" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong>" dispEnd="&lt;/strong>">Pokračovat:</pc> Háže zbylými kostkami. Pokud nejsou body, ztrácí všechny body kola (farkle)</pc><pc id="3" equivStart="START_LIST_ITEM" equivEnd="CLOSE_LIST_ITEM" type="other" dispStart="&lt;li>" dispEnd="&lt;/li>"><pc id="4" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong>" dispEnd="&lt;/strong>">Skončit:</pc> Vezme si body z kola a končí</pc></pc></target></segment>
+    </unit><unit id="8616384371680829556">
+      <notes>
+
+      <note category="location">src/app/pages/rules/rules.component.html:48</note></notes>
+      <segment state="translated">
+        <source>If player uses all dice, rolls again with all 6 dice (without losing points)</source>
+      <target>Pokud hráč získá všechny kostky zpět, háže znovu se všemi 6 kostkami (bez ztráty bodů)</target></segment>
+    </unit><unit id="8910743309135439356">
+      <notes>
+
+      <note category="location">src/app/pages/rules/rules.component.html:55</note></notes>
+      <segment state="translated">
+        <source>Farkle</source>
+      <target>Farkle</target></segment>
+    </unit><unit id="68544837376243645">
+      <notes>
+
+      <note category="location">src/app/pages/rules/rules.component.html:58</note></notes>
+      <segment state="translated">
+        <source>If a player has no scoring dice in their roll (no 1s, 5s, or combinations), they lose all points from the current round and their turn ends.</source>
+      <target>Pokud hráč během kola nemá v házených kostkách žádné body (nejsou 1, 5 nebo kombinace), ztratí všechny body z aktuálního kola a jeho kolo skončí.</target></segment>
     </unit><unit id="1567933707014835992">
       <notes>
 
@@ -80,15 +227,15 @@
       <target>Uložit</target></segment>
     </unit><unit id="header.settings">
       <notes>
-        <note category="location">src/app/header/header.component.ts</note>
-      </notes>
+
+      <note category="location">src/app/header/header.component.ts:46</note></notes>
       <segment state="translated">
         <source>Settings</source>
       <target>Nastavení</target></segment>
     </unit><unit id="header.rules">
       <notes>
-        <note category="location">src/app/header/header.component.ts</note>
-      </notes>
+
+      <note category="location">src/app/header/header.component.ts:48</note></notes>
       <segment state="translated">
         <source>Rules</source>
       <target>Pravidla</target></segment>

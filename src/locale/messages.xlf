@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en">
   <file id="ngi18n" original="ng.template">
+    <unit id="header.settings">
+      <notes>
+        <note category="location">src/app/header/header.component.ts:46</note>
+      </notes>
+      <segment>
+        <source>Settings</source>
+      </segment>
+    </unit>
+    <unit id="header.rules">
+      <notes>
+        <note category="location">src/app/header/header.component.ts:48</note>
+      </notes>
+      <segment>
+        <source>Rules</source>
+      </segment>
+    </unit>
     <unit id="8066657364512808074">
       <notes>
         <note category="location">src/app/pages/game/controls/controls.component.html:2,3</note>
@@ -55,6 +71,174 @@
       </notes>
       <segment>
         <source>New game</source>
+      </segment>
+    </unit>
+    <unit id="8383247063934420175">
+      <notes>
+        <note category="location">src/app/pages/rules/rules.component.html:6</note>
+      </notes>
+      <segment>
+        <source>Game objective</source>
+      </segment>
+    </unit>
+    <unit id="9128036461485546799">
+      <notes>
+        <note category="location">src/app/pages/rules/rules.component.html:9,10</note>
+      </notes>
+      <segment>
+        <source>The player who first reaches 2000 points wins. Players take turns rolling dice and collecting points for certain combinations.</source>
+      </segment>
+    </unit>
+    <unit id="2673765205235944593">
+      <notes>
+        <note category="location">src/app/pages/rules/rules.component.html:15</note>
+      </notes>
+      <segment>
+        <source>Scoring rules</source>
+      </segment>
+    </unit>
+    <unit id="122181939212683375">
+      <notes>
+        <note category="location">src/app/pages/rules/rules.component.html:19,20</note>
+      </notes>
+      <segment>
+        <source><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong&gt;" dispEnd="&lt;/strong&gt;">1:</pc> 100 points</source>
+      </segment>
+    </unit>
+    <unit id="1279717121811017036">
+      <notes>
+        <note category="location">src/app/pages/rules/rules.component.html:20,21</note>
+      </notes>
+      <segment>
+        <source><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong&gt;" dispEnd="&lt;/strong&gt;">5:</pc> 50 points</source>
+      </segment>
+    </unit>
+    <unit id="8514613946893159780">
+      <notes>
+        <note category="location">src/app/pages/rules/rules.component.html:21,22</note>
+      </notes>
+      <segment>
+        <source><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong&gt;" dispEnd="&lt;/strong&gt;">Three of a kind:</pc> Value × 100 (e.g. three 4s = 400 points)</source>
+      </segment>
+    </unit>
+    <unit id="1718694354878411288">
+      <notes>
+        <note category="location">src/app/pages/rules/rules.component.html:22,23</note>
+      </notes>
+      <segment>
+        <source><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong&gt;" dispEnd="&lt;/strong&gt;">Three 1s:</pc> 1000 points</source>
+      </segment>
+    </unit>
+    <unit id="187914367659312656">
+      <notes>
+        <note category="location">src/app/pages/rules/rules.component.html:23,24</note>
+      </notes>
+      <segment>
+        <source><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong&gt;" dispEnd="&lt;/strong&gt;">Four of a kind:</pc> Double the points of three of a kind (e.g. four 4s = 800 points)</source>
+      </segment>
+    </unit>
+    <unit id="3701063766375187036">
+      <notes>
+        <note category="location">src/app/pages/rules/rules.component.html:24,25</note>
+      </notes>
+      <segment>
+        <source><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong&gt;" dispEnd="&lt;/strong&gt;">Five of a kind:</pc> Four times the points of three of a kind (e.g. five 4s = 1600 points)</source>
+      </segment>
+    </unit>
+    <unit id="3014525873995891492">
+      <notes>
+        <note category="location">src/app/pages/rules/rules.component.html:25,26</note>
+      </notes>
+      <segment>
+        <source><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong&gt;" dispEnd="&lt;/strong&gt;">Six of a kind:</pc> Eight times the points of three of a kind</source>
+      </segment>
+    </unit>
+    <unit id="1444304118133275599">
+      <notes>
+        <note category="location">src/app/pages/rules/rules.component.html:26,27</note>
+      </notes>
+      <segment>
+        <source><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong&gt;" dispEnd="&lt;/strong&gt;">Full straight (1-2-3-4-5-6):</pc> 1500 points</source>
+      </segment>
+    </unit>
+    <unit id="192989546288722366">
+      <notes>
+        <note category="location">src/app/pages/rules/rules.component.html:27,28</note>
+      </notes>
+      <segment>
+        <source><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong&gt;" dispEnd="&lt;/strong&gt;">Partial straight (1-2-3-4-5):</pc> 500 points</source>
+      </segment>
+    </unit>
+    <unit id="6189384693477079178">
+      <notes>
+        <note category="location">src/app/pages/rules/rules.component.html:28,29</note>
+      </notes>
+      <segment>
+        <source><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong&gt;" dispEnd="&lt;/strong&gt;">Partial straight (2-3-4-5-6):</pc> 750 points</source>
+      </segment>
+    </unit>
+    <unit id="8474440639017089446">
+      <notes>
+        <note category="location">src/app/pages/rules/rules.component.html:35</note>
+      </notes>
+      <segment>
+        <source>Round procedure</source>
+      </segment>
+    </unit>
+    <unit id="315300027983188945">
+      <notes>
+        <note category="location">src/app/pages/rules/rules.component.html:39,40</note>
+      </notes>
+      <segment>
+        <source>Player rolls all 6 dice</source>
+      </segment>
+    </unit>
+    <unit id="8159647429209871551">
+      <notes>
+        <note category="location">src/app/pages/rules/rules.component.html:40,41</note>
+      </notes>
+      <segment>
+        <source>Must select at least one scoring die</source>
+      </segment>
+    </unit>
+    <unit id="4800336201274986729">
+      <notes>
+        <note category="location">src/app/pages/rules/rules.component.html:41,42</note>
+      </notes>
+      <segment>
+        <source>Selected dice are set aside and their points are added (round)</source>
+      </segment>
+    </unit>
+    <unit id="7821479012291698310">
+      <notes>
+        <note category="location">src/app/pages/rules/rules.component.html:42,48</note>
+      </notes>
+      <segment>
+        <source>Player can choose: <pc id="0" equivStart="START_UNORDERED_LIST" equivEnd="CLOSE_UNORDERED_LIST" type="other" dispStart="&lt;ul&gt;" dispEnd="&lt;/ul&gt;"><pc id="1" equivStart="START_LIST_ITEM" equivEnd="CLOSE_LIST_ITEM" type="other" dispStart="&lt;li&gt;" dispEnd="&lt;/li&gt;"><pc id="2" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong&gt;" dispEnd="&lt;/strong&gt;">Continue:</pc> Roll remaining dice. If no points, loses all round points (farkle)</pc><pc id="3" equivStart="START_LIST_ITEM" equivEnd="CLOSE_LIST_ITEM" type="other" dispStart="&lt;li&gt;" dispEnd="&lt;/li&gt;"><pc id="4" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong&gt;" dispEnd="&lt;/strong&gt;">End:</pc> Take round points and end turn</pc></pc></source>
+      </segment>
+    </unit>
+    <unit id="8616384371680829556">
+      <notes>
+        <note category="location">src/app/pages/rules/rules.component.html:48,49</note>
+      </notes>
+      <segment>
+        <source>If player uses all dice, rolls again with all 6 dice (without losing points)</source>
+      </segment>
+    </unit>
+    <unit id="8910743309135439356">
+      <notes>
+        <note category="location">src/app/pages/rules/rules.component.html:55</note>
+      </notes>
+      <segment>
+        <source>Farkle</source>
+      </segment>
+    </unit>
+    <unit id="68544837376243645">
+      <notes>
+        <note category="location">src/app/pages/rules/rules.component.html:58,59</note>
+      </notes>
+      <segment>
+        <source>If a player has no scoring dice in their roll (no 1s, 5s, or combinations), they lose all points from the current round and their turn ends.</source>
       </segment>
     </unit>
     <unit id="1567933707014835992">
