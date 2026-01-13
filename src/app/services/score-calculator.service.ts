@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -36,7 +36,6 @@ export class ScoreCalculatorService {
       }
     }
 
-    console.log("counts", counts);
     // Check for multiples of a kind
     for (let [die, count] of Object.entries(counts)) {
       const num = Number.parseInt(die);
@@ -48,7 +47,6 @@ export class ScoreCalculatorService {
       }
     }
 
-    console.log("remainingDice", remainingDice);
     // Check for single 1s and 5s
     for (let die of remainingDice) {
       if (die === 1 || die === 5) {
