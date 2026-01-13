@@ -7,7 +7,7 @@ export class ScoreCalculatorService {
 
   constructor() { }
 
-  private SCORE_RULES: Record<string, number> = {
+  private readonly SCORE_RULES: Record<string, number> = {
     "1": 100,
     "5": 50,
     "111": 1000,
@@ -39,7 +39,7 @@ export class ScoreCalculatorService {
     console.log("counts", counts);
     // Check for multiples of a kind
     for (let [die, count] of Object.entries(counts)) {
-      const num = parseInt(die);
+      const num = Number.parseInt(die);
       if (count >= 3) {
         let baseScore = num === 1 ? 1000 : num * 100;
         let multiplier = 1 << (count - 3); // Doubles for four or more

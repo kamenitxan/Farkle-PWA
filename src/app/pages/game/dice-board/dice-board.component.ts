@@ -12,7 +12,7 @@ import {DiceComponent, DiceSelectedData} from "../dice/dice.component";
 export class DiceBoardComponent implements OnInit {
   vcr = viewChild('container', { read: ViewContainerRef });
 
-  dices: any[][] = [...Array(6)].map(e => Array(6));
+  dices: any[][] = [...Array(6)].map(e => new Array(6));
 
   diceSelectionChanged = output<number[]>();
 
@@ -45,7 +45,7 @@ export class DiceBoardComponent implements OnInit {
   }
 
   getSelectedDice(): number[] {
-    return this.dices.flat().filter(d => d && d.instance && d.instance.selected).map(d => d.instance.faces);
+    return this.dices.flat().filter(d => d?.instance && d?.instance.selected).map(d => d.instance.faces);
   }
 
   lockSelectedDice() {
@@ -53,7 +53,7 @@ export class DiceBoardComponent implements OnInit {
     const rowsWithSelectedDice = new Set<number>();
     this.dices.forEach((row, rowIndex) => {
       row.forEach(dice => {
-        if (dice && dice.instance && dice.instance.selected) {
+        if (dice?.instance && dice.instance.selected) {
           rowsWithSelectedDice.add(rowIndex);
         }
       });
@@ -63,15 +63,15 @@ export class DiceBoardComponent implements OnInit {
     this.dices.forEach((row, rowIndex) => {
       if (rowsWithSelectedDice.has(rowIndex)) {
         row.forEach(dice => {
-          if (dice && dice.instance) {
+          if (dice?.instance) {
             const wasSelected = dice.instance.selected;
             dice.instance.locked = true;
             dice.instance.selected = false;
             // Keep track if this dice was actually selected (for orange color)
-            if (!dice.instance.hasOwnProperty('wasSelected')) {
-              dice.instance.wasSelected = wasSelected;
-            } else {
+            if (dice.instance.hasOwnProperty('wasSelected')) {
               dice.instance.wasSelected = dice.instance.wasSelected || wasSelected;
+            } else {
+              dice.instance.wasSelected = wasSelected;
             }
           }
         });
@@ -81,7 +81,7 @@ export class DiceBoardComponent implements OnInit {
 
   resetAllDice() {
     this.dices.flat().forEach(dice => {
-      if (dice && dice.instance) {
+      if (dice?.instance) {
         dice.instance.selected = false;
         dice.instance.locked = false;
         dice.instance.wasSelected = false;

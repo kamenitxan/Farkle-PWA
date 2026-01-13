@@ -17,7 +17,7 @@ export class SettingsService {
   constructor(@Optional() @SkipSelf() parent?: SettingsService) {
     console.log("SERVICE CONSTRUCTOR");
     if (parent) {
-      throw Error(
+      throw new Error(
         `[GuardedSingletonService]: trying to create multiple instances,
         but this service should be a singleton.`
       );
