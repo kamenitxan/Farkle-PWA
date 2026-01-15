@@ -6,6 +6,19 @@
   }
   <span>{{ getHeaderTitle() }}</span>
   <span class="example-spacer"></span>
+  <button mat-icon-button [matMenuTriggerFor]="languageMenu" class="language-button">
+    <span class="flag">{{ getCurrentLanguageFlag() }}</span>
+  </button>
+  <mat-menu #languageMenu="matMenu">
+    <button mat-menu-item (click)="changeLanguage('cs')">
+      <span class="menu-flag">🇨🇿</span>
+      <span>Čeština</span>
+    </button>
+    <button mat-menu-item (click)="changeLanguage('en')">
+      <span class="menu-flag">🇬🇧</span>
+      <span>English</span>
+    </button>
+  </mat-menu>
   <button mat-icon-button class="example-icon" routerLink="rules">
     <mat-icon>help_outline</mat-icon>
   </button>

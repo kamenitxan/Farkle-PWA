@@ -2,6 +2,7 @@ import {Component, input, OnInit} from '@angular/core';
 import {MatToolbar} from '@angular/material/toolbar';
 import {MatIcon} from '@angular/material/icon';
 import {MatIconButton} from '@angular/material/button';
+import {MatMenu, MatMenuItem, MatMenuTrigger} from '@angular/material/menu';
 import {RouterLink} from '@angular/router';
 import {SettingsService} from '../services/settings.service';
 
@@ -11,6 +12,9 @@ import {SettingsService} from '../services/settings.service';
     MatToolbar,
     MatIcon,
     MatIconButton,
+    MatMenu,
+    MatMenuTrigger,
+    MatMenuItem,
     RouterLink
   ],
   templateUrl: './header.component.html',
@@ -49,6 +53,21 @@ export class HeaderComponent implements OnInit {
     } else {
       return "Farkle";
     }
+  }
+
+  changeLanguage(lang: string): void {
+    window.location.href = `/${lang}`;
+  }
+
+  getCurrentLanguageFlag(): string {
+    const route = window.location.href;
+    if (route.includes('/cs')) {
+      return '🇨🇿';
+    } else if (route.includes('/en')) {
+      return '🇬🇧';
+    }
+    // Default vlajka, pokud je na home page
+    return '🇬🇧';
   }
 
 }

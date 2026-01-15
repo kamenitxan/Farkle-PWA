@@ -13,8 +13,7 @@ import {WinnerDialogComponent} from './winner-dialog/winner-dialog.component';
   imports: [
     DiceBoardComponent,
     ControlsComponent,
-    ScoreboardComponent,
-    WinnerDialogComponent
+    ScoreboardComponent
   ],
   templateUrl: './game.component.html',
   styleUrl: './game.component.scss'
