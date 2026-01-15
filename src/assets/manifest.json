@@ -2,10 +2,10 @@
   "name": "Farkle",
   "icons": [
     {
-      "src": "icon.png",
+      "src": "/en/icon.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
-  "display": "standalone"
+  "display": "fullscreen"
 }
