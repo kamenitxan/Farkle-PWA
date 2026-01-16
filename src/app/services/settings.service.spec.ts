@@ -1,13 +1,21 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { SettingsService } from './settings.service';
+import {SettingsService} from './settings.service';
 
 describe('SettingsService', () => {
   let service: SettingsService;
 
   beforeEach(() => {
+    // Clear localStorage before each test
+    localStorage.clear();
+
     TestBed.configureTestingModule({});
     service = TestBed.inject(SettingsService);
+  });
+
+  afterEach(() => {
+    // Clean up localStorage after each test
+    localStorage.clear();
   });
 
   it('should be created', () => {
@@ -104,5 +112,63 @@ describe('SettingsService', () => {
     expect(emissions).toContain(1000);
     expect(emissions).toContain(3000);
     expect(emissions).toContain(5000);
+  });
+
+  it('should persist player names to localStorage', () => {
+    const player1 = 'John';
+    const player2 = 'Jane';
+
+    service.updatePlayers(player1, player2);
+
+    expect(localStorage.getItem('farkle_player1_name')).toBe(player1);
+    expect(localStorage.getItem('farkle_player2_name')).toBe(player2);
+  });
+
+  it('should persist target score to localStorage', () => {
+    const targetScore = 4000;
+
+    service.updateTargetScore(targetScore);
+
+    expect(localStorage.getItem('farkle_target_score')).toBe(targetScore.toString());
+  });
+
+  it('should load player names from localStorage on initialization', () => {
+    localStorage.setItem('farkle_player1_name', 'StoredPlayer1');
+    localStorage.setItem('farkle_player2_name', 'StoredPlayer2');
+
+    // Create a new instance to test loading from localStorage
+    const newService = new SettingsService();
+
+    newService.player1NameObservable.subscribe(name => {
+      expect(name).toBe('StoredPlayer1');
+    });
+
+    newService.player2NameObservable.subscribe(name => {
+      expect(name).toBe('StoredPlayer2');
+    });
+  });
+
+  it('should load target score from localStorage on initialization', () => {
+    localStorage.setItem('farkle_target_score', '7500');
+
+    // Create a new instance to test loading from localStorage
+    const newService = new SettingsService();
+
+    newService.targetScoreObservable.subscribe(score => {
+      expect(score).toBe(7500);
+    });
+  });
+
+  it('should use default values when localStorage is empty', () => {
+    // localStorage is already clear from beforeEach
+    expect(service.getTargetScore()).toBe(2000);
+
+    service.player1NameObservable.subscribe(name => {
+      expect(name).toBe('player1');
+    });
+
+    service.player2NameObservable.subscribe(name => {
+      expect(name).toBe('player2');
+    });
   });
 });
