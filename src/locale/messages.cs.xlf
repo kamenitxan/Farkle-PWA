@@ -45,8 +45,8 @@
       <target>Hráč <ph id="0" equiv="INTERPOLATION" disp="{{ data.winner }}"/> vyhrál se skóre <ph id="1" equiv="INTERPOLATION_1" disp="{{ data.score }}"/>.</target></segment>
     </unit><unit id="2128624502640961509">
       <notes>
-        <note category="location">src/app/pages/game/winner-dialog/winner-dialog.component.html:37,38</note>
-      </notes>
+        
+      <note category="location">src/app/pages/game/winner-dialog/winner-dialog.component.html:36</note></notes>
       <segment state="translated">
         <source>New game</source>
       <target>Nová hra</target></segment>
@@ -228,14 +228,14 @@
     </unit><unit id="header.settings">
       <notes>
 
-      <note category="location">src/app/header/header.component.ts:46</note></notes>
+      <note category="location">src/app/header/header.component.ts:50</note></notes>
       <segment state="translated">
         <source>Settings</source>
       <target>Nastavení</target></segment>
     </unit><unit id="header.rules">
       <notes>
 
-      <note category="location">src/app/header/header.component.ts:48</note></notes>
+      <note category="location">src/app/header/header.component.ts:52</note></notes>
       <segment state="translated">
         <source>Rules</source>
       <target>Pravidla</target></segment>

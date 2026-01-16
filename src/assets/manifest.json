@@ -1,10 +1,16 @@
 {
   "name": "Farkle",
+  "background_color": "#fafafa",
   "icons": [
     {
-      "src": "/en/icon.png",
+      "src": "/assets/icon.png",
       "type": "image/png",
       "sizes": "512x512"
+    },
+    {
+      "src": "/assets/icon_sm.png",
+      "type": "image/png",
+      "sizes": "192x192"
     }
   ],
   "display": "fullscreen"

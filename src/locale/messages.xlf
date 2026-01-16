@@ -3,7 +3,7 @@
   <file id="ngi18n" original="ng.template">
     <unit id="header.settings">
       <notes>
-        <note category="location">src/app/header/header.component.ts:46</note>
+        <note category="location">src/app/header/header.component.ts:50</note>
       </notes>
       <segment>
         <source>Settings</source>
@@ -11,7 +11,7 @@
     </unit>
     <unit id="header.rules">
       <notes>
-        <note category="location">src/app/header/header.component.ts:48</note>
+        <note category="location">src/app/header/header.component.ts:52</note>
       </notes>
       <segment>
         <source>Rules</source>
@@ -67,7 +67,7 @@
     </unit>
     <unit id="2128624502640961509">
       <notes>
-        <note category="location">src/app/pages/game/winner-dialog/winner-dialog.component.html:37,38</note>
+        <note category="location">src/app/pages/game/winner-dialog/winner-dialog.component.html:36,37</note>
       </notes>
       <segment>
         <source>New game</source>
