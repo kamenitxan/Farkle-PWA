@@ -77,6 +77,9 @@ export class DiceBoardComponent implements OnInit {
         });
       }
     });
+
+    // Emit the updated selection (which is now empty)
+    this.diceSelectionChanged.emit(this.getSelectedDice());
   }
 
   resetAllDice() {

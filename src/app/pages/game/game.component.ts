@@ -24,6 +24,7 @@ export class GameComponent {
   diceBoard: DiceBoardComponent | undefined = undefined;
 
   currentPlayer: 1 | 2 = 1;
+  selectedDiceCount: number = 0;
 
   constructor(
     private readonly scoreCalculator: ScoreCalculatorService,
@@ -93,11 +94,13 @@ export class GameComponent {
       const score = this.scoreCalculator.calculateScore(selectedDice);
       this.scoreKeeperService.updateRoundScore(score);
       this.diceBoard.lockSelectedDice();
+      this.selectedDiceCount = 0;
       this.scoreKeeperService.updateSelectedScore(0);
     }
   }
 
   handleDiceSelectionChanged(selectedDice: number[]) {
+    this.selectedDiceCount = selectedDice.length;
     if (selectedDice.length > 0) {
       const score = this.scoreCalculator.calculateScore(selectedDice);
       this.scoreKeeperService.updateSelectedScore(score);

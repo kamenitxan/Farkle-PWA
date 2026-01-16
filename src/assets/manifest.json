@@ -1,6 +1,8 @@
 {
   "name": "Farkle",
+  "description": "Score keeping app for farkle dice game",
   "background_color": "#fafafa",
+  "start_url": "/en",
   "icons": [
     {
       "src": "/assets/icon.png",
@@ -12,6 +14,10 @@
       "type": "image/png",
       "sizes": "192x192"
     }
+  ],
+  "display_override": [
+    "window-controls-overlay",
+    "fullscreen"
   ],
   "display": "fullscreen"
 }

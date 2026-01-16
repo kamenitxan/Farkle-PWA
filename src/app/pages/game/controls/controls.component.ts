@@ -1,4 +1,4 @@
-import {Component, output} from '@angular/core';
+import {Component, input, output} from '@angular/core';
 import {MatButton} from '@angular/material/button';
 
 @Component({
@@ -10,6 +10,8 @@ import {MatButton} from '@angular/material/button';
   styleUrl: './controls.component.scss'
 })
 export class ControlsComponent {
+
+  selectedDiceCount = input<number>(0);
 
   endRoundEvt = output();
   rollAgainEvt = output();
