@@ -4,6 +4,6 @@
     <app-scoreboard [playerId]="2" id="sc2"></app-scoreboard>
   </div>
   <app-dice-board (diceSelectionChanged)="handleDiceSelectionChanged($event)"></app-dice-board>
-  <app-controls id="controls" [selectedDiceCount]="selectedDiceCount" (endRoundEvt)="handleEndRound()"
+  <app-controls id="controls" [selectedScore]="selectedScore" (endRoundEvt)="handleEndRound()"
                 (rollAgainEvt)="handleRollAgain()"></app-controls>
 </div>

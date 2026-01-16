@@ -11,7 +11,7 @@ import {MatButton} from '@angular/material/button';
 })
 export class ControlsComponent {
 
-  selectedDiceCount = input<number>(0);
+  selectedScore = input<number>(0);
 
   endRoundEvt = output();
   rollAgainEvt = output();
