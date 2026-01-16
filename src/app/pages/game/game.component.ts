@@ -65,6 +65,23 @@ export class GameComponent {
     if (this.diceBoard) {
       const selectedDice = this.diceBoard.getSelectedDice();
       const score = this.scoreCalculator.calculateScore(selectedDice);
+
+      // Pokud hráč nevybral kostky s body, jedná se o Farkle - kolo je ztraceno
+      if (score === 0) {
+        this.scoreKeeperService.resetRoundScore();
+        this.scoreKeeperService.updateSelectedScore(0);
+        this.diceBoard.resetAllDice();
+        this.selectedScore = 0;
+
+        // winner check
+        if (this.checkWinnerAndShowDialog()) {
+          return;
+        }
+
+        this.scoreKeeperService.updateCurrentPlayer(this.currentPlayer === 1 ? 2 : 1);
+        return;
+      }
+
       this.scoreKeeperService.updateRoundScore(score);
 
       const totalRoundScore = this.scoreKeeperService.getRoundScore();
@@ -73,6 +90,7 @@ export class GameComponent {
       this.scoreKeeperService.resetRoundScore();
       this.scoreKeeperService.updateSelectedScore(0);
       this.diceBoard.resetAllDice();
+      this.selectedScore = 0;
 
       // winner check
       if (this.checkWinnerAndShowDialog()) {
