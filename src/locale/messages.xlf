@@ -241,6 +241,22 @@
         <source>If a player has no scoring dice in their roll (no 1s, 5s, or combinations), they lose all points from the current round and their turn ends.</source>
       </segment>
     </unit>
+    <unit id="6328153736146960969">
+      <notes>
+        <note category="location">src/app/pages/rules/rules.component.html:64</note>
+      </notes>
+      <segment>
+        <source>Feedback and bug reports</source>
+      </segment>
+    </unit>
+    <unit id="5679350714013493871">
+      <notes>
+        <note category="location">src/app/pages/rules/rules.component.html:67,68</note>
+      </notes>
+      <segment>
+        <source>Found a bug or have a suggestion? Visit the <pc id="0" equivStart="START_LINK" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a href=&quot;https://github.com/kamenitxan/Farkle-PWA&quot; target=&quot;_blank&quot;&gt;" dispEnd="&lt;/a&gt;">GitHub repository</pc> to report issues or contribute.</source>
+      </segment>
+    </unit>
     <unit id="1567933707014835992">
       <notes>
         <note category="location">src/app/pages/settings/settings.component.html:6</note>

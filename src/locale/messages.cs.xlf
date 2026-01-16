@@ -89,9 +89,9 @@
       <notes>
         <note category="location">src/app/pages/rules/rules.component.html:21,22</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong>" dispEnd="&lt;/strong>">Three of a kind:</pc> Value × 100 (e.g. three 4s = 400 points)</source>
-      <target><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong>" dispEnd="&lt;/strong>">Three of a kind:</pc> Value × 100 (e.g. three 4s = 400 points)</target></segment>
+      <target><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong>" dispEnd="&lt;/strong>">Tři stejné:</pc> Hodnota × 100 (např. tři * 4 = 400 bodů)</target></segment>
     </unit><unit id="1718694354878411288">
       <notes>
         <note category="location">src/app/pages/rules/rules.component.html:22,23</note>
@@ -103,23 +103,23 @@
       <notes>
         <note category="location">src/app/pages/rules/rules.component.html:23,24</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong>" dispEnd="&lt;/strong>">Four of a kind:</pc> Double the points of three of a kind (e.g. four 4s = 800 points)</source>
-      <target><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong>" dispEnd="&lt;/strong>">Four of a kind:</pc> Double the points of three of a kind (e.g. four 4s = 800 points)</target></segment>
+      <target><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong>" dispEnd="&lt;/strong>">Čtyři stejné:</pc> Dvojitý počet bodů oproti třem stejným (např. čtyři * 4 = 800 bodů)</target></segment>
     </unit><unit id="3701063766375187036">
       <notes>
         <note category="location">src/app/pages/rules/rules.component.html:24,25</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong>" dispEnd="&lt;/strong>">Five of a kind:</pc> Four times the points of three of a kind (e.g. five 4s = 1600 points)</source>
-      <target><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong>" dispEnd="&lt;/strong>">Five of a kind:</pc> Four times the points of three of a kind (e.g. five 4s = 1600 points)</target></segment>
+      <target><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong>" dispEnd="&lt;/strong>">Pět stejných:</pc> Čtyřnásobek bodů oproti třem stejným (např. pět * 4 = 1600 bodů)</target></segment>
     </unit><unit id="3014525873995891492">
       <notes>
         <note category="location">src/app/pages/rules/rules.component.html:25,26</note>
       </notes>
-      <segment state="initial">
+      <segment state="translated">
         <source><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong>" dispEnd="&lt;/strong>">Six of a kind:</pc> Eight times the points of three of a kind</source>
-      <target><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong>" dispEnd="&lt;/strong>">Six of a kind:</pc> Eight times the points of three of a kind</target></segment>
+      <target><pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong>" dispEnd="&lt;/strong>">Šest stejných:</pc> Osminásobek bodů za tři stejné</target></segment>
     </unit><unit id="1444304118133275599">
       <notes>
         <note category="location">src/app/pages/rules/rules.component.html:26,27</note>
@@ -197,6 +197,20 @@
       <segment state="translated">
         <source>If a player has no scoring dice in their roll (no 1s, 5s, or combinations), they lose all points from the current round and their turn ends.</source>
       <target>Pokud hráč během kola nemá v házených kostkách žádné body (nejsou 1, 5 nebo kombinace), ztratí všechny body z aktuálního kola a jeho kolo skončí.</target></segment>
+    </unit><unit id="6328153736146960969">
+      <notes>
+        <note category="location">src/app/pages/rules/rules.component.html:64</note>
+      </notes>
+      <segment state="translated">
+        <source>Feedback and bug reports</source>
+      <target>Zpětná vazba a hlášení chyb</target></segment>
+    </unit><unit id="5679350714013493871">
+      <notes>
+        <note category="location">src/app/pages/rules/rules.component.html:67,68</note>
+      </notes>
+      <segment state="translated">
+        <source>Found a bug or have a suggestion? Visit the <pc id="0" equivStart="START_LINK" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a href=&quot;https://github.com/kamenitxan/Farkle-PWA&quot; target=&quot;_blank&quot;>" dispEnd="&lt;/a>">GitHub repository</pc> to report issues or contribute.</source>
+      <target>Našli jste chybu nebo máte návrh na vylepšení? Navštivte <pc id="0" equivStart="START_LINK" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a href=&quot;https://github.com/kamenitxan/Farkle-PWA&quot; target=&quot;_blank&quot;>" dispEnd="&lt;/a>">GitHub repozitář</pc> vytvořte issue.</target></segment>
     </unit><unit id="1567933707014835992">
       <notes>
 
