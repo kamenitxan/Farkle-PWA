@@ -55,4 +55,13 @@ describe('HeaderComponent', () => {
     const title = component.getHeaderTitle();
     expect(title).toBe('Farkle');
   });
+
+  describe('getCurrentLanguageFlag', () => {
+    it('should return English flag for /en/ route', () => {
+      // In the test environment, location.href doesn't contain /cs or /la
+      const flag = component.getCurrentLanguageFlag();
+      // Default is English flag
+      expect(flag).toBe('🇬🇧');
+    });
+  });
 });

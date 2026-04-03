@@ -152,6 +152,28 @@ describe('GameComponent', () => {
       expect(scoreKeeperService.updateRoundScore).not.toHaveBeenCalled();
     });
 
+    it('should reset all dice when all are locked after rolling again (hot dice)', () => {
+      const selectedDice = [1, 5];
+      (component.diceBoard!.getSelectedDice as jasmine.Spy).and.returnValue(selectedDice);
+      (component.diceBoard!.areAllDiceLocked as jasmine.Spy).and.returnValue(true);
+      scoreCalculatorService.calculateScore.and.returnValue(150);
+
+      component.handleRollAgain();
+
+      expect(component.diceBoard!.resetAllDice).toHaveBeenCalled();
+    });
+
+    it('should not reset dice when not all are locked', () => {
+      const selectedDice = [1, 5];
+      (component.diceBoard!.getSelectedDice as jasmine.Spy).and.returnValue(selectedDice);
+      (component.diceBoard!.areAllDiceLocked as jasmine.Spy).and.returnValue(false);
+      scoreCalculatorService.calculateScore.and.returnValue(150);
+
+      component.handleRollAgain();
+
+      expect(component.diceBoard!.resetAllDice).not.toHaveBeenCalled();
+    });
+
     it('should reset selectedScore to 0 after locking dice', () => {
       const selectedDice = [1, 1, 1];
       (component.diceBoard!.getSelectedDice as jasmine.Spy).and.returnValue(selectedDice);
@@ -306,6 +328,47 @@ describe('GameComponent', () => {
       component.handleEndRound();
 
       expect(matDialog.open).toHaveBeenCalled();
+    });
+
+    it('should call resetAllScores and resetAllDice when dialog closes with new game', () => {
+      (component.diceBoard!.getSelectedDice as jasmine.Spy).and.returnValue([1]);
+      scoreCalculatorService.calculateScore.and.returnValue(100);
+      scoreKeeperService.getRoundScore.and.returnValue(100);
+      settingsService.getTargetScore.and.returnValue(2000);
+      scoreKeeperService.getPlayerScore.and.returnValues(2000, 0);
+      (scoreKeeperService.currentPlayer as jasmine.Spy).and.returnValue(1);
+
+      const dialogRefSpy = jasmine.createSpyObj('MatDialogRef', ['afterClosed']);
+      dialogRefSpy.afterClosed.and.returnValue(of('new'));
+      matDialog.open.and.returnValue(dialogRefSpy);
+
+      component.handleEndRound();
+
+      expect(scoreKeeperService.resetAllScores).toHaveBeenCalled();
+      expect(component.diceBoard!.resetAllDice).toHaveBeenCalled();
+    });
+
+    it('should open winner dialog on Farkle when player score already reaches target', () => {
+      component.diceBoard = jasmine.createSpyObj('DiceBoardComponent', [
+        'getSelectedDice', 'resetAllDice'
+      ]) as any;
+      (component.diceBoard!.getSelectedDice as jasmine.Spy).and.returnValue([2, 3, 4]);
+      scoreCalculatorService.calculateScore.and.returnValue(0);
+      settingsService.getTargetScore.and.returnValue(2000);
+      scoreKeeperService.getPlayerScore.and.returnValues(2000, 0);
+      (scoreKeeperService.currentPlayer as jasmine.Spy).and.returnValue(1);
+
+      const dialogRefSpy = jasmine.createSpyObj('MatDialogRef', ['afterClosed']);
+      dialogRefSpy.afterClosed.and.returnValue({
+        subscribe: () => {
+        }
+      });
+      matDialog.open.and.returnValue(dialogRefSpy);
+
+      component.handleEndRound();
+
+      expect(matDialog.open).toHaveBeenCalled();
+      expect(scoreKeeperService.updateCurrentPlayer).not.toHaveBeenCalled();
     });
   });
 

@@ -304,6 +304,28 @@ describe('DiceBoardComponent', () => {
     });
   });
 
+  describe('areAllDiceLocked', () => {
+    beforeEach(() => {
+      fixture.detectChanges();
+    });
+
+    it('should return false when no dice are locked', () => {
+      expect(component.areAllDiceLocked()).toBe(false);
+    });
+
+    it('should return false when only some rows have locked dice', () => {
+      component.dices[0][1].instance.locked = true;
+      expect(component.areAllDiceLocked()).toBe(false);
+    });
+
+    it('should return true when every row has at least one locked die', () => {
+      for (let row = 0; row < 6; row++) {
+        component.dices[row][1].instance.locked = true;
+      }
+      expect(component.areAllDiceLocked()).toBe(true);
+    });
+  });
+
   describe('Integration tests', () => {
     beforeEach(() => {
       fixture.detectChanges();

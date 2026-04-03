@@ -104,4 +104,52 @@ describe('ScoreKeeperService', () => {
     service.updateRoundScore(200);
     expect(service.roundScore()).toBe(200);
   });
+
+  describe('updateCurrentPlayer', () => {
+    it('should update current player to 2', () => {
+      service.updateCurrentPlayer(2);
+      expect(service.currentPlayer()).toBe(2);
+    });
+
+    it('should update current player back to 1', () => {
+      service.updateCurrentPlayer(2);
+      service.updateCurrentPlayer(1);
+      expect(service.currentPlayer()).toBe(1);
+    });
+  });
+
+  describe('getPlayerScore', () => {
+    it('should return player 1 score', () => {
+      service.addToPlayerScore(1, 350);
+      expect(service.getPlayerScore(1)).toBe(350);
+    });
+
+    it('should return player 2 score', () => {
+      service.addToPlayerScore(2, 600);
+      expect(service.getPlayerScore(2)).toBe(600);
+    });
+
+    it('should return 0 when no score added', () => {
+      expect(service.getPlayerScore(1)).toBe(0);
+      expect(service.getPlayerScore(2)).toBe(0);
+    });
+  });
+
+  describe('resetAllScores', () => {
+    it('should reset all scores and state to initial values', () => {
+      service.addToPlayerScore(1, 500);
+      service.addToPlayerScore(2, 700);
+      service.updateRoundScore(300);
+      service.updateSelectedScore(100);
+      service.updateCurrentPlayer(2);
+
+      service.resetAllScores();
+
+      expect(service.player1Score()).toBe(0);
+      expect(service.player2Score()).toBe(0);
+      expect(service.roundScore()).toBe(0);
+      expect(service.selectedScore()).toBe(0);
+      expect(service.currentPlayer()).toBe(1);
+    });
+  });
 });

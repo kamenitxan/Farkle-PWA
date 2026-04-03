@@ -171,4 +171,50 @@ describe('SettingsService', () => {
       expect(name).toBe('player2');
     });
   });
+
+  describe('updateTheme', () => {
+    it('should update theme signal', () => {
+      service.updateTheme('dark');
+      expect(service.theme()).toBe('dark');
+    });
+
+    it('should persist theme to localStorage', () => {
+      service.updateTheme('medieval');
+      expect(localStorage.getItem('farkle_theme')).toBe('medieval');
+    });
+
+    it('should update theme back to light', () => {
+      service.updateTheme('dark');
+      service.updateTheme('light');
+      expect(service.theme()).toBe('light');
+    });
+  });
+
+  describe('localStorage error handling', () => {
+    it('should return default string value when localStorage.getItem throws', () => {
+      spyOn(localStorage, 'getItem').and.throwError('Storage error');
+      spyOn(console, 'warn');
+      const newService = new SettingsService();
+      newService.player1NameObservable.subscribe(name => {
+        expect(name).toBe('player1');
+      });
+      expect(console.warn).toHaveBeenCalled();
+    });
+
+    it('should return default number value when localStorage.getItem throws on number field', () => {
+      spyOn(localStorage, 'getItem').and.throwError('Storage error');
+      spyOn(console, 'warn');
+      const newService = new SettingsService();
+      newService.targetScoreObservable.subscribe(score => {
+        expect(score).toBe(2000);
+      });
+    });
+
+    it('should warn when localStorage.setItem throws', () => {
+      spyOn(localStorage, 'setItem').and.throwError('Storage full');
+      spyOn(console, 'warn');
+      service.updatePlayers('Alice', 'Bob');
+      expect(console.warn).toHaveBeenCalled();
+    });
+  });
 });
