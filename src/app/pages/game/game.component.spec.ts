@@ -1,4 +1,6 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {signal} from '@angular/core';
+import {of} from 'rxjs';
 import {GameComponent} from './game.component';
 import {ScoreCalculatorService} from '../../services/score-calculator.service';
 import {ScoreKeeperService} from '../../services/score-keeper.service';
@@ -30,60 +32,19 @@ describe('GameComponent', () => {
       'getPlayerScore'
     ]);
     const settingsSpy = jasmine.createSpyObj('SettingsService', ['getTargetScore'], {
-      player1NameObservable: {
-        subscribe: () => ({
-          unsubscribe: () => {
-          }
-        })
-      },
-      player2NameObservable: {
-        subscribe: () => ({
-          unsubscribe: () => {
-          }
-        })
-      },
-      targetScoreObservable: {
-        subscribe: () => ({
-          unsubscribe: () => {
-          }
-        })
-      }
+      player1NameObservable: of('player1'),
+      player2NameObservable: of('player2'),
+      targetScoreObservable: of(2000),
+      theme: signal<'light' | 'dark' | 'medieval'>('light').asReadonly(),
     });
     const dialogSpy = jasmine.createSpyObj('MatDialog', ['open']);
 
-    // Setup observables for ScoreKeeperService
-    scoreKeeperSpy.currentPlayerObservable = jasmine.createSpyObj('Observable', ['subscribe']);
-    scoreKeeperSpy.currentPlayerObservable.subscribe.and.callFake((callback: any) => {
-      callback(1);
-      return {
-        unsubscribe: () => {
-        }
-      };
-    });
-
-    scoreKeeperSpy.player1ScoreObservable = jasmine.createSpyObj('Observable', ['subscribe']);
-    scoreKeeperSpy.player1ScoreObservable.subscribe.and.returnValue({
-      unsubscribe: () => {
-      }
-    });
-
-    scoreKeeperSpy.player2ScoreObservable = jasmine.createSpyObj('Observable', ['subscribe']);
-    scoreKeeperSpy.player2ScoreObservable.subscribe.and.returnValue({
-      unsubscribe: () => {
-      }
-    });
-
-    scoreKeeperSpy.roundScoreObservable = jasmine.createSpyObj('Observable', ['subscribe']);
-    scoreKeeperSpy.roundScoreObservable.subscribe.and.returnValue({
-      unsubscribe: () => {
-      }
-    });
-
-    scoreKeeperSpy.selectedScoreObservable = jasmine.createSpyObj('Observable', ['subscribe']);
-    scoreKeeperSpy.selectedScoreObservable.subscribe.and.returnValue({
-      unsubscribe: () => {
-      }
-    });
+    // Setup signal-like properties for ScoreKeeperService
+    scoreKeeperSpy.currentPlayer = jasmine.createSpy('currentPlayer').and.returnValue(1);
+    scoreKeeperSpy.player1Score = jasmine.createSpy('player1Score').and.returnValue(0);
+    scoreKeeperSpy.player2Score = jasmine.createSpy('player2Score').and.returnValue(0);
+    scoreKeeperSpy.roundScore = jasmine.createSpy('roundScore').and.returnValue(0);
+    scoreKeeperSpy.selectedScore = jasmine.createSpy('selectedScore').and.returnValue(0);
 
     await TestBed.configureTestingModule({
       imports: [GameComponent],
@@ -117,7 +78,7 @@ describe('GameComponent', () => {
   });
 
   it('should initialize with currentPlayer = 1', () => {
-    expect(component.currentPlayer).toBe(1);
+    expect(scoreKeeperService.currentPlayer()).toBe(1);
   });
 
   it('should initialize with selectedScore = 0', () => {
@@ -162,13 +123,15 @@ describe('GameComponent', () => {
       component.diceBoard = jasmine.createSpyObj('DiceBoardComponent', [
         'getSelectedDice',
         'lockSelectedDice',
-        'resetAllDice'
+        'resetAllDice',
+        'areAllDiceLocked'
       ]) as any;
     });
 
     it('should update round score and lock selected dice', () => {
       const selectedDice = [1, 5];
       (component.diceBoard!.getSelectedDice as jasmine.Spy).and.returnValue(selectedDice);
+      (component.diceBoard!.areAllDiceLocked as jasmine.Spy).and.returnValue(false);
       scoreCalculatorService.calculateScore.and.returnValue(150);
 
       component.handleRollAgain();
@@ -192,6 +155,7 @@ describe('GameComponent', () => {
     it('should reset selectedScore to 0 after locking dice', () => {
       const selectedDice = [1, 1, 1];
       (component.diceBoard!.getSelectedDice as jasmine.Spy).and.returnValue(selectedDice);
+      (component.diceBoard!.areAllDiceLocked as jasmine.Spy).and.returnValue(false);
       scoreCalculatorService.calculateScore.and.returnValue(1000);
       component.selectedScore = 1000;
 
@@ -215,7 +179,7 @@ describe('GameComponent', () => {
       const selectedDice = [2, 3, 4];
       (component.diceBoard!.getSelectedDice as jasmine.Spy).and.returnValue(selectedDice);
       scoreCalculatorService.calculateScore.and.returnValue(0);
-      component.currentPlayer = 1;
+      (scoreKeeperService.currentPlayer as jasmine.Spy).and.returnValue(1);
 
       component.handleEndRound();
 
@@ -254,7 +218,7 @@ describe('GameComponent', () => {
       (component.diceBoard!.getSelectedDice as jasmine.Spy).and.returnValue(selectedDice);
       scoreCalculatorService.calculateScore.and.returnValue(150);
       scoreKeeperService.getRoundScore.and.returnValue(350);
-      component.currentPlayer = 1;
+      (scoreKeeperService.currentPlayer as jasmine.Spy).and.returnValue(1);
 
       component.handleEndRound();
 
@@ -271,7 +235,7 @@ describe('GameComponent', () => {
       (component.diceBoard!.getSelectedDice as jasmine.Spy).and.returnValue(selectedDice);
       scoreCalculatorService.calculateScore.and.returnValue(100);
       scoreKeeperService.getRoundScore.and.returnValue(100);
-      component.currentPlayer = 2;
+      (scoreKeeperService.currentPlayer as jasmine.Spy).and.returnValue(2);
 
       component.handleEndRound();
 
@@ -316,8 +280,7 @@ describe('GameComponent', () => {
       } as any);
       matDialog.open.and.returnValue(dialogRefSpy);
 
-      component.currentPlayer = 1;
-
+      (scoreKeeperService.currentPlayer as jasmine.Spy).and.returnValue(1);
       component.handleEndRound();
 
       expect(matDialog.open).toHaveBeenCalled();
@@ -339,8 +302,7 @@ describe('GameComponent', () => {
       } as any);
       matDialog.open.and.returnValue(dialogRefSpy);
 
-      component.currentPlayer = 2;
-
+      (scoreKeeperService.currentPlayer as jasmine.Spy).and.returnValue(2);
       component.handleEndRound();
 
       expect(matDialog.open).toHaveBeenCalled();

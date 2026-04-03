@@ -14,175 +14,94 @@ describe('ScoreKeeperService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should have initial player 1 score of 0', (done) => {
-    service.player1ScoreObservable.subscribe(score => {
-      expect(score).toBe(0);
-      done();
-    });
+  it('should have initial player 1 score of 0', () => {
+    expect(service.player1Score()).toBe(0);
   });
 
-  it('should have initial player 2 score of 0', (done) => {
-    service.player2ScoreObservable.subscribe(score => {
-      expect(score).toBe(0);
-      done();
-    });
+  it('should have initial player 2 score of 0', () => {
+    expect(service.player2Score()).toBe(0);
   });
 
-  it('should have initial round score of 0', (done) => {
-    service.roundScoreObservable.subscribe(score => {
-      expect(score).toBe(0);
-      done();
-    });
+  it('should have initial round score of 0', () => {
+    expect(service.roundScore()).toBe(0);
   });
 
-  it('should have initial selected score of 0', (done) => {
-    service.selectedScoreObservable.subscribe(score => {
-      expect(score).toBe(0);
-      done();
-    });
+  it('should have initial selected score of 0', () => {
+    expect(service.selectedScore()).toBe(0);
   });
 
-  it('should have initial current player of 1', (done) => {
-    service.currentPlayerObservable.subscribe(player => {
-      expect(player).toBe(1);
-      done();
-    });
+  it('should have initial current player of 1', () => {
+    expect(service.currentPlayer()).toBe(1);
   });
 
   it('should return initial round score', () => {
     expect(service.getRoundScore()).toBe(0);
   });
 
-  it('should update selected score', (done) => {
+  it('should update selected score', () => {
     service.updateSelectedScore(500);
-    service.selectedScoreObservable.subscribe(score => {
-      expect(score).toBe(500);
-      done();
-    });
+    expect(service.selectedScore()).toBe(500);
   });
 
-  it('should update round score', (done) => {
+  it('should update round score', () => {
     service.updateRoundScore(300);
-    service.roundScoreObservable.subscribe(score => {
-      expect(score).toBe(300);
-      done();
-    });
+    expect(service.roundScore()).toBe(300);
   });
 
-  it('should accumulate round score on multiple updates', (done) => {
+  it('should accumulate round score on multiple updates', () => {
     service.updateRoundScore(100);
     service.updateRoundScore(200);
     service.updateRoundScore(150);
-    service.roundScoreObservable.subscribe(score => {
-      expect(score).toBe(450);
-      done();
-    });
+    expect(service.roundScore()).toBe(450);
   });
 
-  it('should reset round score to 0', (done) => {
+  it('should reset round score to 0', () => {
     service.updateRoundScore(500);
     service.resetRoundScore();
-    service.roundScoreObservable.subscribe(score => {
-      expect(score).toBe(0);
-      done();
-    });
+    expect(service.roundScore()).toBe(0);
   });
 
-  it('should add score to player 1', (done) => {
+  it('should add score to player 1', () => {
     service.addToPlayerScore(1, 250);
-    service.player1ScoreObservable.subscribe(score => {
-      expect(score).toBe(250);
-      done();
-    });
+    expect(service.player1Score()).toBe(250);
   });
 
-  it('should add score to player 2', (done) => {
+  it('should add score to player 2', () => {
     service.addToPlayerScore(2, 300);
-    service.player2ScoreObservable.subscribe(score => {
-      expect(score).toBe(300);
-      done();
-    });
+    expect(service.player2Score()).toBe(300);
   });
 
-  it('should accumulate scores for player 1', (done) => {
+  it('should accumulate scores for player 1', () => {
     service.addToPlayerScore(1, 100);
     service.addToPlayerScore(1, 200);
     service.addToPlayerScore(1, 150);
-    service.player1ScoreObservable.subscribe(score => {
-      expect(score).toBe(450);
-      done();
-    });
+    expect(service.player1Score()).toBe(450);
   });
 
-  it('should accumulate scores for player 2', (done) => {
+  it('should accumulate scores for player 2', () => {
     service.addToPlayerScore(2, 150);
     service.addToPlayerScore(2, 250);
-    service.player2ScoreObservable.subscribe(score => {
-      expect(score).toBe(400);
-      done();
-    });
+    expect(service.player2Score()).toBe(400);
   });
 
-  it('should maintain separate scores for players', (done) => {
+  it('should maintain separate scores for players', () => {
     service.addToPlayerScore(1, 300);
     service.addToPlayerScore(2, 500);
-
-    let player1Score = 0;
-    let player2Score = 0;
-    let completed = 0;
-
-    service.player1ScoreObservable.subscribe(score => {
-      player1Score = score;
-      completed++;
-      if (completed === 2) {
-        expect(player1Score).toBe(300);
-        expect(player2Score).toBe(500);
-        done();
-      }
-    });
-
-    service.player2ScoreObservable.subscribe(score => {
-      player2Score = score;
-      completed++;
-      if (completed === 2) {
-        expect(player1Score).toBe(300);
-        expect(player2Score).toBe(500);
-        done();
-      }
-    });
+    expect(service.player1Score()).toBe(300);
+    expect(service.player2Score()).toBe(500);
   });
 
-  it('should emit multiple round score updates', () => {
-    const emissions: number[] = [];
-
-    service.roundScoreObservable.subscribe(score => {
-      emissions.push(score);
-    });
-
+  it('should accumulate round score on multiple updates and reflect final value', () => {
     service.updateRoundScore(100);
     service.updateRoundScore(200);
     service.updateRoundScore(300);
-
-    expect(emissions).toContain(0); // initial value
-    expect(emissions).toContain(100);
-    expect(emissions).toContain(300);
-    expect(emissions).toContain(600);
+    expect(service.roundScore()).toBe(600);
   });
 
-  it('should handle round score reset and restart', (done) => {
-    const emissions: number[] = [];
-
-    service.roundScoreObservable.subscribe(score => {
-      emissions.push(score);
-    });
-
+  it('should handle round score reset and restart', () => {
     service.updateRoundScore(500);
     service.resetRoundScore();
     service.updateRoundScore(200);
-
-    setTimeout(() => {
-      expect(emissions[emissions.length - 1]).toBe(200);
-      done();
-    }, 0);
+    expect(service.roundScore()).toBe(200);
   });
 });
