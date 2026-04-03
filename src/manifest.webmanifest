@@ -1,0 +1,30 @@
+{
+  "name": "Farkle",
+  "short_name": "Farkle",
+  "description": "Score keeping app for the Farkle dice game",
+  "theme_color": "#1565c0",
+  "background_color": "#fafafa",
+  "start_url": "/en/",
+  "scope": "/",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "assets/icon_sm.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icon.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "display": "standalone",
+  "display_override": [
+    "window-controls-overlay",
+    "standalone"
+  ],
+  "orientation": "portrait"
+}
