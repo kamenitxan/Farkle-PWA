@@ -1,5 +1,7 @@
-import {Injectable, Optional, SkipSelf} from '@angular/core';
+import {Injectable, Optional, signal, SkipSelf} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
+
+export type AppTheme = 'light' | 'dark';
 
 @Injectable({
   providedIn: 'root'
@@ -9,9 +11,11 @@ export class SettingsService {
   private readonly STORAGE_KEY_PLAYER1 = 'farkle_player1_name';
   private readonly STORAGE_KEY_PLAYER2 = 'farkle_player2_name';
   private readonly STORAGE_KEY_TARGET_SCORE = 'farkle_target_score';
+  private readonly STORAGE_KEY_THEME = 'farkle_theme';
   private readonly DEFAULT_PLAYER1 = 'player1';
   private readonly DEFAULT_PLAYER2 = 'player2';
   private readonly DEFAULT_TARGET_SCORE = 2000;
+  private readonly DEFAULT_THEME: AppTheme = 'light';
 
   private readonly _player1NameSubject = new BehaviorSubject<string>(this.getFromStorage(this.STORAGE_KEY_PLAYER1, this.DEFAULT_PLAYER1));
   private readonly _player2NameSubject = new BehaviorSubject<string>(this.getFromStorage(this.STORAGE_KEY_PLAYER2, this.DEFAULT_PLAYER2));
@@ -20,6 +24,11 @@ export class SettingsService {
 
   private readonly _targetScoreSubject = new BehaviorSubject<number>(this.getFromStorageNumber(this.STORAGE_KEY_TARGET_SCORE, this.DEFAULT_TARGET_SCORE));
   targetScoreObservable = this._targetScoreSubject.asObservable();
+
+  private readonly _theme = signal<AppTheme>(
+      this.getFromStorage(this.STORAGE_KEY_THEME, this.DEFAULT_THEME) as AppTheme
+  );
+  readonly theme = this._theme.asReadonly();
 
   constructor(@Optional() @SkipSelf() parent?: SettingsService) {
     console.log("SERVICE CONSTRUCTOR");
@@ -70,6 +79,11 @@ export class SettingsService {
   updateTargetScore(targetScore: number) {
     this._targetScoreSubject.next(targetScore);
     this.saveToStorage(this.STORAGE_KEY_TARGET_SCORE, targetScore.toString());
+  }
+
+  updateTheme(theme: AppTheme) {
+    this._theme.set(theme);
+    this.saveToStorage(this.STORAGE_KEY_THEME, theme);
   }
 
   getTargetScore(): number {

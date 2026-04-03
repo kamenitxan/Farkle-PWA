@@ -1,11 +1,13 @@
 import {Component, inject} from '@angular/core';
-import {SettingsService} from '../../services/settings.service';
+import {AppTheme, SettingsService} from '../../services/settings.service';
 import {FormBuilder, ReactiveFormsModule, Validators} from '@angular/forms';
 import {MatFormField, MatLabel} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {Router} from '@angular/router';
 import {MatCard, MatCardContent} from '@angular/material/card';
 import {MatButton} from '@angular/material/button';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatIconModule} from '@angular/material/icon';
 
 @Component({
   selector: 'app-settings',
@@ -16,7 +18,9 @@ import {MatButton} from '@angular/material/button';
     MatInputModule,
     MatCard,
     MatCardContent,
-    MatButton
+    MatButton,
+    MatButtonToggleModule,
+    MatIconModule,
   ],
   templateUrl: './settings.component.html',
   styleUrl: './settings.component.scss'
@@ -28,6 +32,7 @@ export class SettingsComponent {
     player1Name: ['', [Validators.required]],
     player2Name: ['', [Validators.required]],
     targetScore: [2000, [Validators.required, Validators.min(100)]],
+    theme: ['light'],
   });
 
   constructor(
@@ -35,15 +40,19 @@ export class SettingsComponent {
     private readonly router: Router
   ) {
     this.settingsService.player1NameObservable.subscribe(player1Name => {
-      console.log("patching player1Name", player1Name);
       this.form.patchValue({player1Name: player1Name});
-    })
+    });
     this.settingsService.player2NameObservable.subscribe(player2Name => {
       this.form.patchValue({player2Name: player2Name});
-    })
+    });
     this.settingsService.targetScoreObservable.subscribe(targetScore => {
       this.form.patchValue({targetScore: targetScore});
-    })
+    });
+    this.form.patchValue({theme: this.settingsService.theme()});
+
+    this.form.get('theme')!.valueChanges.subscribe(theme => {
+      this.settingsService.updateTheme((theme ?? 'light') as AppTheme);
+    });
   }
 
   onSubmit() {

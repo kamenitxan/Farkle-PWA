@@ -5,7 +5,7 @@
   width: 100%;
   overflow: auto;
   padding: 16px;
-  background: #f5f5f5;
+  background: var(--mat-sys-background);
 }
 
 .settings-container {
@@ -52,6 +52,28 @@
   margin-top: 16px;
   padding-top: 12px;
   border-top: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.theme-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .theme-label {
+    font-size: 14px;
+    color: var(--mat-sys-on-surface-variant);
+  }
+
+  mat-button-toggle-group {
+    width: 100%;
+
+    mat-button-toggle {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+  }
 }
 
 button {

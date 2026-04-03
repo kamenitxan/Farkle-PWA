@@ -17,6 +17,20 @@
           <input matInput formControlName="targetScore" type="number" required data-testid="targetScore">
         </mat-form-field>
 
+        <div class="theme-section">
+          <span class="theme-label" i18n>Theme</span>
+          <mat-button-toggle-group formControlName="theme" aria-label="Theme">
+            <mat-button-toggle value="light">
+              <mat-icon>light_mode</mat-icon>
+              <span i18n>Light</span>
+            </mat-button-toggle>
+            <mat-button-toggle value="dark">
+              <mat-icon>dark_mode</mat-icon>
+              <span i18n>Dark</span>
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+
         <div class="button-container">
           <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid" i18n>Save</button>
         </div>
