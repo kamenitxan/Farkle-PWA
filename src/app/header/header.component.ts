@@ -63,11 +63,11 @@ export class HeaderComponent implements OnInit {
     const route = window.location.href;
     if (route.includes('/cs')) {
       return '🇨🇿';
-    } else if (route.includes('/en')) {
+    } else if (route.includes('/la')) {
+      return '🇻🇦';
+    } else {
       return '🇬🇧';
     }
-    // Default vlajka, pokud je na home page
-    return '🇬🇧';
   }
 
 }

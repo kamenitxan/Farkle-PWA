@@ -22,7 +22,8 @@
             "browser": "src/main.ts",
             "localize": [
               "en",
-              "cs"
+              "cs",
+              "la"
             ],
             "polyfills": [
               "@angular/localize/init"
@@ -75,6 +76,12 @@
                 "en"
               ],
               "baseHref": "/en/"
+            },
+            "la": {
+              "localize": [
+                "la"
+              ],
+              "baseHref": "/la/"
             }
           },
           "defaultConfiguration": "production"
@@ -93,6 +100,9 @@
             },
             "en": {
               "buildTarget": "farkle-pwa:build:en"
+            },
+            "la": {
+              "buildTarget": "farkle-pwa:build:la"
             }
           },
           "defaultConfiguration": "development"
@@ -126,7 +136,8 @@
       "i18n": {
         "sourceLocale": "en",
         "locales": {
-          "cs": "src/locale/messages.cs.xlf"
+          "cs": "src/locale/messages.cs.xlf",
+          "la": "src/locale/messages.la.xlf"
         }
       }
     }
