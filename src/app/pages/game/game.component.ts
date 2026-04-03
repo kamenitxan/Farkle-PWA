@@ -23,7 +23,6 @@ export class GameComponent {
   @ViewChild(DiceBoardComponent)
   diceBoard: DiceBoardComponent | undefined = undefined;
 
-  currentPlayer: 1 | 2 = 1;
   selectedScore: number = 0;
 
   constructor(
@@ -32,9 +31,6 @@ export class GameComponent {
     private readonly settingsService: SettingsService,
     private readonly dialog: MatDialog,
   ) {
-    this.scoreKeeperService.currentPlayerObservable.subscribe(player => {
-      this.currentPlayer = player;
-    });
   }
 
   private checkWinnerAndShowDialog() {
@@ -78,14 +74,14 @@ export class GameComponent {
           return;
         }
 
-        this.scoreKeeperService.updateCurrentPlayer(this.currentPlayer === 1 ? 2 : 1);
+        this.scoreKeeperService.updateCurrentPlayer(this.scoreKeeperService.currentPlayer() === 1 ? 2 : 1);
         return;
       }
 
       this.scoreKeeperService.updateRoundScore(score);
 
       const totalRoundScore = this.scoreKeeperService.getRoundScore();
-      this.scoreKeeperService.addToPlayerScore(this.currentPlayer, totalRoundScore);
+      this.scoreKeeperService.addToPlayerScore(this.scoreKeeperService.currentPlayer(), totalRoundScore);
 
       this.scoreKeeperService.resetRoundScore();
       this.scoreKeeperService.updateSelectedScore(0);
@@ -97,7 +93,7 @@ export class GameComponent {
         return;
       }
 
-      this.scoreKeeperService.updateCurrentPlayer(this.currentPlayer === 1 ? 2 : 1);
+      this.scoreKeeperService.updateCurrentPlayer(this.scoreKeeperService.currentPlayer() === 1 ? 2 : 1);
     }
   }
 
@@ -112,6 +108,11 @@ export class GameComponent {
       const score = this.scoreCalculator.calculateScore(selectedDice);
       this.scoreKeeperService.updateRoundScore(score);
       this.diceBoard.lockSelectedDice();
+
+      if (this.diceBoard.areAllDiceLocked()) {
+        this.diceBoard.resetAllDice();
+      }
+
       this.selectedScore = 0;
       this.scoreKeeperService.updateSelectedScore(0);
     }

@@ -1,24 +1,24 @@
-<mat-card class="scoreboard" [class.active]="isCurrentPlayer">
+<mat-card class="scoreboard" [class.active]="isCurrentPlayer()">
   <mat-card-content>
     <div class="player-section">
-      <h2 class="player-name">{{ playerName }}</h2>
+      <h2 class="player-name">{{ playerName() }}</h2>
     </div>
 
     <div class="score-display">
       <div class="main-score">
-        <span class="score-number">{{ score }}</span>
-        <span class="score-total">/ {{ targetScore }}</span>
+        <span class="score-number">{{ score() }}</span>
+        <span class="score-total">/ {{ targetScore() }}</span>
       </div>
     </div>
 
     <div class="score-stats">
       <div class="stat">
         <span class="stat-label" i18n>Round</span>
-        <span class="stat-value">{{ roundScore }}</span>
+        <span class="stat-value">{{ isCurrentPlayer() ? roundScore() : 0 }}</span>
       </div>
       <div class="stat">
         <span class="stat-label" i18n>Selected</span>
-        <span class="stat-value">{{ isCurrentPlayer ? selectedScore : 0 }}</span>
+        <span class="stat-value">{{ isCurrentPlayer() ? selectedScore() : 0 }}</span>
       </div>
     </div>
   </mat-card-content>

@@ -1,4 +1,5 @@
-import {Component, input, OnInit} from '@angular/core';
+import {Component, computed, inject, input} from '@angular/core';
+import {toSignal} from '@angular/core/rxjs-interop';
 import {SettingsService} from '../../../services/settings.service';
 import {ScoreKeeperService} from '../../../services/score-keeper.service';
 import {MatCard, MatCardContent} from '@angular/material/card';
@@ -9,50 +10,20 @@ import {MatCard, MatCardContent} from '@angular/material/card';
   templateUrl: './scoreboard.component.html',
   styleUrl: './scoreboard.component.scss'
 })
-export class ScoreboardComponent implements OnInit {
+export class ScoreboardComponent {
 
-  playerId = input.required<1 | 2>();
-  playerName: string = "";
-  score: number = 0;
-  roundScore: number = 0;
-  selectedScore: number = 0;
-  targetScore: number = 2000;
-  isCurrentPlayer: boolean = false;
+  readonly playerId = input.required<1 | 2>();
 
-  constructor(
-    private readonly settingsService: SettingsService,
-    private readonly scoreKeeperService: ScoreKeeperService,
-  ) {
+  private readonly settingsService = inject(SettingsService);
+  private readonly scoreKeeperService = inject(ScoreKeeperService);
 
-  }
+  private readonly player1Name = toSignal(this.settingsService.player1NameObservable, {initialValue: ''});
+  private readonly player2Name = toSignal(this.settingsService.player2NameObservable, {initialValue: ''});
 
-  ngOnInit(): void {
-    if (this.playerId() === 1) {
-      this.settingsService.player1NameObservable.subscribe(player1Name => {
-        this.playerName = player1Name;
-      });
-      this.scoreKeeperService.player1ScoreObservable.subscribe(score => {
-        this.score = score;
-      });
-    } else {
-      this.settingsService.player2NameObservable.subscribe(player2Name => {
-        this.playerName = player2Name;
-      });
-      this.scoreKeeperService.player2ScoreObservable.subscribe(score => {
-        this.score = score;
-      });
-    }
-    this.scoreKeeperService.roundScoreObservable.subscribe(score => {
-      this.roundScore = score;
-    });
-    this.scoreKeeperService.selectedScoreObservable.subscribe(score => {
-      this.selectedScore = score;
-    });
-    this.settingsService.targetScoreObservable.subscribe(targetScore => {
-      this.targetScore = targetScore;
-    });
-    this.scoreKeeperService.currentPlayerObservable.subscribe(currentPlayer => {
-      this.isCurrentPlayer = currentPlayer === this.playerId();
-    });
-  }
+  readonly playerName = computed(() => this.playerId() === 1 ? this.player1Name() : this.player2Name());
+  readonly score = computed(() => this.playerId() === 1 ? this.scoreKeeperService.player1Score() : this.scoreKeeperService.player2Score());
+  readonly roundScore = this.scoreKeeperService.roundScore;
+  readonly selectedScore = this.scoreKeeperService.selectedScore;
+  readonly targetScore = toSignal(this.settingsService.targetScoreObservable, {initialValue: 2000});
+  readonly isCurrentPlayer = computed(() => this.scoreKeeperService.currentPlayer() === this.playerId());
 }

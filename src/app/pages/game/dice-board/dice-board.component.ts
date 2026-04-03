@@ -82,6 +82,12 @@ export class DiceBoardComponent implements OnInit {
     this.diceSelectionChanged.emit(this.getSelectedDice());
   }
 
+  areAllDiceLocked(): boolean {
+    return this.dices.every(row =>
+      row.some(dice => dice?.instance && dice.instance.locked)
+    );
+  }
+
   resetAllDice() {
     this.dices.flat().forEach(dice => {
       if (dice?.instance) {

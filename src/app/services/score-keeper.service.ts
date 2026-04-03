@@ -1,68 +1,59 @@
-import { Injectable } from '@angular/core';
-import {BehaviorSubject} from 'rxjs';
+import {Injectable, signal} from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ScoreKeeperService {
 
-  private readonly _player1ScoreSubject = new BehaviorSubject<number>(0);
-  private readonly _player2ScoreSubject = new BehaviorSubject<number>(0);
-  player1ScoreObservable = this._player1ScoreSubject.asObservable();
-  player2ScoreObservable = this._player2ScoreSubject.asObservable();
+  private readonly _player1Score = signal(0);
+  private readonly _player2Score = signal(0);
+  private readonly _roundScore = signal(0);
+  private readonly _selectedScore = signal(0);
+  private readonly _currentPlayer = signal<1 | 2>(1);
 
-  private roundScore: number = 0;
-  private readonly _roundScoreSubject = new BehaviorSubject<number>(this.roundScore);
-  roundScoreObservable = this._roundScoreSubject.asObservable();
-  private readonly _selectedScoreSubject = new BehaviorSubject<number>(0);
-  selectedScoreObservable = this._selectedScoreSubject.asObservable();
-
-  private readonly _currentPlayerSubject = new BehaviorSubject<1 | 2>(1);
-  currentPlayerObservable = this._currentPlayerSubject.asObservable();
-
-  constructor() { }
+  readonly player1Score = this._player1Score.asReadonly();
+  readonly player2Score = this._player2Score.asReadonly();
+  readonly roundScore = this._roundScore.asReadonly();
+  readonly selectedScore = this._selectedScore.asReadonly();
+  readonly currentPlayer = this._currentPlayer.asReadonly();
 
   updateSelectedScore(score: number) {
-    this._selectedScoreSubject.next(score);
+    this._selectedScore.set(score);
   }
 
   getRoundScore(): number {
-    return this.roundScore;
+    return this._roundScore();
   }
 
   updateRoundScore(score: number) {
-    this.roundScore += score;
-    this._roundScoreSubject.next(this.roundScore);
+    this._roundScore.update(v => v + score);
   }
 
   resetRoundScore() {
-    this.roundScore = 0;
-    this._roundScoreSubject.next(this.roundScore);
+    this._roundScore.set(0);
   }
 
   addToPlayerScore(player: 1 | 2, score: number) {
     if (player === 1) {
-      const currentScore = this._player1ScoreSubject.value;
-      this._player1ScoreSubject.next(currentScore + score);
+      this._player1Score.update(v => v + score);
     } else {
-      const currentScore = this._player2ScoreSubject.value;
-      this._player2ScoreSubject.next(currentScore + score);
+      this._player2Score.update(v => v + score);
     }
   }
 
   updateCurrentPlayer(player: 1 | 2) {
-    this._currentPlayerSubject.next(player);
+    this._currentPlayer.set(player);
   }
 
   getPlayerScore(player: 1 | 2): number {
-    return player === 1 ? this._player1ScoreSubject.value : this._player2ScoreSubject.value;
+    return player === 1 ? this._player1Score() : this._player2Score();
   }
 
   resetAllScores() {
-    this._player1ScoreSubject.next(0);
-    this._player2ScoreSubject.next(0);
-    this.resetRoundScore();
-    this.updateSelectedScore(0);
-    this.updateCurrentPlayer(1);
+    this._player1Score.set(0);
+    this._player2Score.set(0);
+    this._roundScore.set(0);
+    this._selectedScore.set(0);
+    this._currentPlayer.set(1);
   }
 }
