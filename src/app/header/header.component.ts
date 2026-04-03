@@ -56,11 +56,11 @@ export class HeaderComponent implements OnInit {
   }
 
   changeLanguage(lang: string): void {
-    window.location.href = `/${lang}`;
+    globalThis.location.href = `/${lang}`;
   }
 
   getCurrentLanguageFlag(): string {
-    const route = window.location.href;
+    const route = globalThis.location.href;
     if (route.includes('/cs')) {
       return '🇨🇿';
     } else if (route.includes('/la')) {

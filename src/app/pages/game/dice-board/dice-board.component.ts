@@ -37,7 +37,7 @@ export class DiceBoardComponent implements OnInit {
   handleDiceSelected(v: DiceSelectedData) {
     for (let col = 1; col <= 6; col++) {
       if (col !== v.faces) {
-        this.dices[v.row][col].instance.selected = false //.setInput("selected", false);
+        this.dices[v.row][col].instance.selected = false;
       }
     }
     // Emit the current selected dice

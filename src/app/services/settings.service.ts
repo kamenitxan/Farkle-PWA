@@ -53,7 +53,7 @@ export class SettingsService {
   private getFromStorageNumber(key: string, defaultValue: number): number {
     try {
       const value = localStorage.getItem(key);
-      return value ? parseInt(value, 10) : defaultValue;
+      return value ? Number.parseInt(value, 10) : defaultValue;
     } catch (e) {
       console.warn(`Failed to read from localStorage: ${key}`, e);
       return defaultValue;
