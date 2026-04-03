@@ -1,7 +1,7 @@
 import {Injectable, Optional, signal, SkipSelf} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
 
-export type AppTheme = 'light' | 'dark';
+export type AppTheme = 'light' | 'dark' | 'medieval';
 
 @Injectable({
   providedIn: 'root'

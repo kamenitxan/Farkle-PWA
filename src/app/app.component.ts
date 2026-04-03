@@ -24,7 +24,10 @@ export class AppComponent {
     const settingsService = inject(SettingsService);
 
     effect(() => {
-      doc.documentElement.classList.toggle('dark-theme', settingsService.theme() === 'dark');
+      const theme = settingsService.theme();
+      doc.documentElement.classList.remove('dark-theme', 'medieval-theme');
+      if (theme === 'dark') doc.documentElement.classList.add('dark-theme');
+      if (theme === 'medieval') doc.documentElement.classList.add('medieval-theme');
     });
 
     router.events.pipe(

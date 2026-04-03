@@ -232,10 +232,38 @@
       <segment state="translated">
         <source>Target Score</source>
       <target>Konečné skóre</target></segment>
-    </unit><unit id="3768927257183755959">
+    </unit><unit id="7103588127254721505">
       <notes>
         <note category="location">src/app/pages/settings/settings.component.html:21,22</note>
       </notes>
+      <segment state="translated">
+        <source>Theme</source>
+      <target>Vzhed</target></segment>
+    </unit><unit id="413116577994876478">
+      <notes>
+        <note category="location">src/app/pages/settings/settings.component.html:25,26</note>
+      </notes>
+      <segment state="translated">
+        <source>Light</source>
+      <target>Světlý</target></segment>
+    </unit><unit id="3892161059518616136">
+      <notes>
+        <note category="location">src/app/pages/settings/settings.component.html:29,30</note>
+      </notes>
+      <segment state="translated">
+        <source>Dark</source>
+      <target>Tmavý</target></segment>
+    </unit><unit id="3068366156307697362">
+      <notes>
+        <note category="location">src/app/pages/settings/settings.component.html:33,34</note>
+      </notes>
+      <segment state="translated">
+        <source>Medieval</source>
+      <target>Středověký</target></segment>
+    </unit><unit id="3768927257183755959">
+      <notes>
+        
+      <note category="location">src/app/pages/settings/settings.component.html:39</note></notes>
       <segment state="translated">
         <source>Save</source>
       <target>Uložit</target></segment>
