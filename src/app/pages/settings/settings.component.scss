@@ -46,6 +46,12 @@
   }
 }
 
+.swap-container {
+  display: flex;
+  justify-content: center;
+  margin: -20px 0 5px;
+}
+
 .button-container {
   display: flex;
   gap: 12px;

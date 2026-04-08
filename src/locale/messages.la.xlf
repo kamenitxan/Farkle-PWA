@@ -361,5 +361,14 @@
         <target>Serva</target>
       </segment>
     </unit>
+    <unit id="7778731546598996158">
+      <notes>
+        <note category="location">src/app/pages/settings/settings.component.html</note>
+      </notes>
+      <segment state="translated">
+        <source>Swap players</source>
+        <target>Permuta lusores</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

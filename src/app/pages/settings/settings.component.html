@@ -7,6 +7,12 @@
           <input matInput formControlName="player1Name" type="text" data-testid="player1Name">
         </mat-form-field>
 
+        <div class="swap-container">
+          <button mat-icon-button color="primary" type="button" (click)="swapPlayers()" class="swap-btn" title="Swap players" i18n-title>
+            <mat-icon>swap_vert</mat-icon>
+          </button>
+        </div>
+
         <mat-form-field appearance="outline" class="full-width">
           <mat-label i18n>Player 2</mat-label>
           <input matInput formControlName="player2Name" type="text" required data-testid="player2Name">

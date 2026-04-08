@@ -1,5 +1,6 @@
-import {Component, OnInit, output, viewChild, ViewContainerRef} from '@angular/core';
+import {Component, OnDestroy, OnInit, output, viewChild, ViewContainerRef} from '@angular/core';
 import {DiceComponent, DiceSelectedData} from "../dice/dice.component";
+import {DiceRowState, GameStateService} from "../../../services/game-state.service";
 
 @Component({
   selector: 'app-dice-board',
@@ -9,15 +10,23 @@ import {DiceComponent, DiceSelectedData} from "../dice/dice.component";
   templateUrl: './dice-board.component.html',
   styleUrl: './dice-board.component.scss'
 })
-export class DiceBoardComponent implements OnInit {
+export class DiceBoardComponent implements OnInit, OnDestroy {
   vcr = viewChild('container', { read: ViewContainerRef });
 
   dices: any[][] = [...Array(6)].map(e => new Array(6));
 
   diceSelectionChanged = output<number[]>();
 
+  constructor(private readonly gameStateService: GameStateService) {
+  }
+
   ngOnInit(): void {
     this.createDices();
+    this.restoreDiceState();
+  }
+
+  ngOnDestroy(): void {
+    this.saveDiceState();
   }
 
   createDices() {
@@ -96,6 +105,44 @@ export class DiceBoardComponent implements OnInit {
         dice.instance.wasSelected = false;
       }
     });
+    this.gameStateService.clearDiceState();
+  }
+
+  private saveDiceState(): void {
+    const state: DiceRowState[] = this.dices.map((row) => {
+      const lockedDice = row.find(d => d?.instance?.locked && d?.instance?.wasSelected);
+      const selectedDice = row.find(d => d?.instance?.selected);
+      return {
+        lockedFace: lockedDice?.instance?.faces ?? null,
+        selectedFace: selectedDice?.instance?.faces ?? null
+      };
+    });
+    this.gameStateService.saveDiceState(state);
+  }
+
+  private restoreDiceState(): void {
+    if (!this.gameStateService.hasDiceState()) return;
+
+    this.gameStateService.diceState.forEach((rowState, rowIndex) => {
+      if (rowState.lockedFace !== null) {
+        for (let col = 1; col <= 6; col++) {
+          const dice = this.dices[rowIndex][col];
+          if (dice?.instance) {
+            dice.instance.locked = true;
+            dice.instance.selected = false;
+            dice.instance.wasSelected = (col === rowState.lockedFace);
+          }
+        }
+      }
+      if (rowState.selectedFace !== null) {
+        const dice = this.dices[rowIndex][rowState.selectedFace];
+        if (dice?.instance) {
+          dice.instance.selected = true;
+        }
+      }
+    });
+
+    this.diceSelectionChanged.emit(this.getSelectedDice());
   }
 
 }

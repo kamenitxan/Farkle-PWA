@@ -5,7 +5,7 @@ import {MatFormField, MatLabel} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {Router} from '@angular/router';
 import {MatCard, MatCardContent} from '@angular/material/card';
-import {MatButton} from '@angular/material/button';
+import {MatButton, MatIconButton} from '@angular/material/button';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatIconModule} from '@angular/material/icon';
 
@@ -21,6 +21,7 @@ import {MatIconModule} from '@angular/material/icon';
     MatButton,
     MatButtonToggleModule,
     MatIconModule,
+    MatIconButton,
   ],
   templateUrl: './settings.component.html',
   styleUrl: './settings.component.scss'
@@ -53,6 +54,12 @@ export class SettingsComponent {
     this.form.get('theme')!.valueChanges.subscribe(theme => {
       this.settingsService.updateTheme((theme ?? 'light') as AppTheme);
     });
+  }
+
+  swapPlayers() {
+    const p1 = this.form.value.player1Name;
+    const p2 = this.form.value.player2Name;
+    this.form.patchValue({player1Name: p2, player2Name: p1});
   }
 
   onSubmit() {
